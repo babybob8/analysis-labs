@@ -1,12 +1,13 @@
 import sys
 from dataclasses import dataclass
 
-from src import Data, parse_vectors_file
+from src import DataMatrix, Data, parse_vectors_file
 
 
 @dataclass
 class Args:
-    f_name: str
+    data_file: str
+    log_file: str
 
 
 def parse_args(argv: list[str]) -> Args:
@@ -14,7 +15,7 @@ def parse_args(argv: list[str]) -> Args:
 
     for i, arg in enumerate(argv):
         if arg == "-f" and i + 1 < len(argv):
-            args.f_name = argv[i + 1]
+            args.data_file = argv[i + 1]
 
     return args
 
@@ -24,13 +25,14 @@ def print_help() -> None:
 
 
 def main(args: Args):
-    if not args.f_name:
-        # TODO >> LOGGER
+    if not args.data_file:
+        # TODO -- LOGGER
         print_help()
         return
 
-    data = Data(parse_vectors_file(args.f_name))
-    print(data.mean_vector())
+    data = Data(DataMatrix(parse_vectors_file(args.f_name)))
+    print(f"({data.dimensions}:{data.vector_length})")
+    print(data.mean_vector)
 
 
 if __name__ == "__main__":
