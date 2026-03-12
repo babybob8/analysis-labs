@@ -1,5 +1,13 @@
-from .initial import mean_vector, covariance_matrix, correlation_matrix
 from functools import cached_property
+
+from .initial import (
+    correlation_matrix,
+    covariance_matrix,
+    mean_vector,
+    mult_correlation_vector,
+    partial_correlation_vector,
+    std_vector,
+)
 
 
 class DataMatrix:
@@ -54,6 +62,10 @@ class Data:
         return mean_vector(self._data_matrix.cols)
 
     @cached_property
+    def std_vector(self) -> list[float]:
+        return std_vector(self._data_matrix.cols)
+
+    @cached_property
     def covariance_matrix(self) -> list[list[float]]:
         return covariance_matrix(
             self.cols, n=self.vector_length, p=self.dimensions, means=self.mean_vector
@@ -62,5 +74,20 @@ class Data:
     @cached_property
     def correlation_matrix(self) -> list[list[float]]:
         return correlation_matrix(
-            self.cols, p=self.dimensions, cov=self.covariance_matrix
+            self.cols,
+            p=self.dimensions,
+            cov_matrix=self.covariance_matrix,
+            stddev_vector=self.std_vector,
+        )
+
+    @cached_property
+    def partial_correlation_vector(self) -> list[float]:
+        return partial_correlation_vector(
+            self.cols, p=self.dimensions, cor_matrix=self.correlation_matrix
+        )
+
+    @cached_property
+    def mult_correlation_vector(self) -> list[float]:
+        return mult_correlation_vector(
+            self.cols, p=self.dimensions, cor_matrix=self.correlation_matrix
         )
