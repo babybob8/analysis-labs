@@ -20,7 +20,13 @@ def parse_args(argv: list[str]) -> Args:
             exit(0)
 
         if arg == "-t":
-            args.data_file = "data\\norm3n.txt"
+            import sys
+
+            args.data_file = (
+                ".\\data\\norm3n.txt"
+                if sys.platform == "win32"
+                else "./data/norm3n.txt"
+            )
 
         if (arg == "-f") and ((i + 1) < len(argv)):
             args.data_file = argv[i + 1]
@@ -28,13 +34,23 @@ def parse_args(argv: list[str]) -> Args:
     return args
 
 
-def format_number(number) -> str:
-    return f"{number:10.2f}"
+def auto_format(obj):
+    if isinstance(obj, bool):
+        return f"      True" if obj else "     False"
+
+    elif isinstance(obj, float):
+        return f"{obj:10.2f}"
+
+    elif isinstance(obj, int):
+        return f"{obj:10}"
+
+    else:
+        return obj
 
 
 def print_vector(vector) -> None:
     for x in vector:
-        print(f"{format_number(x)}", end=" ")
+        print(f"{auto_format(x)}", end=" ")
 
     print()
 

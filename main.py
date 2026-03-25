@@ -11,9 +11,9 @@ def main(args: Args):
 
     data = Data(DataMatrix(parse_vectors_file(args.data_file)))
     print("Dim: ")
-    print(f"{format_number(data.dimensions)}")
+    print(f"{auto_format(data.dimensions)}")
     print("\nData len: ")
-    print(f"{format_number(data.vector_length)}")
+    print(f"{auto_format(data.vector_length)}")
     print("\nMean vector: ")
     print_vector(data.mean_vector)
     print("\nStddev vector: ")
