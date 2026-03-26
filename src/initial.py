@@ -75,7 +75,7 @@ def correlation_matrix(
             d_cor[j][i] = duo_correlation(
                 cov_matrix[i][j], stddev_vector[j], stddev_vector[i]
             )
-            d_cor[j][i] = d_cor[j][i] if d_cor[j][i] <= 0.999999999 else 0.999999999
+            d_cor[j][i] = d_cor[j][i] if d_cor[j][i] < 1 else 0.99999999999999
 
     return d_cor
 
