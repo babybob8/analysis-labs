@@ -75,8 +75,27 @@ def correlation_matrix(
             d_cor[j][i] = duo_correlation(
                 cov_matrix[i][j], stddev_vector[j], stddev_vector[i]
             )
+            d_cor[j][i] = d_cor[j][i] if d_cor[j][i] <= 0.999999999 else 0.999999999
 
     return d_cor
+
+def correlation_significance_matrix(
+    columns: list[list[float]],
+    /,
+    alpha: float = 0.05,
+    N: int | None = None,
+    corr_matrix: list[list[float]] | None = None,
+) -> list[list[bool]]:
+    if N is None:
+        N = len(columns[0])
+
+    if corr_matrix is None:
+        corr_matrix = correlation_matrix(columns)
+    
+    q = t.ppf(1 - (alpha / 2), df=N-2)
+    t_mat = [[((r*sqrt(N-2)) / sqrt(1-r**2)) for r in row] for row in corr_matrix]
+    res_mat = [[True if abs(t) > q else False for t in row] for row in t_mat]
+    return res_mat
 
 
 def partial_correlation(i: int, j: int, d: int, r: list[list[float]]) -> float:
