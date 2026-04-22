@@ -4,6 +4,7 @@ from .parser import parse_vectors_file
 
 from .analysis.initial import (
     correlation_matrix,
+    correlation_significance_matrix,
     covariance_matrix,
     mean_vector,
     std_vector,
@@ -92,6 +93,16 @@ class Data:
             cov_matrix=self.covariance_matrix,
             stddev_vector=self.std_vector,
         )
+    
+    @cached_property
+    def correlation_significance_matrix(self) -> list[list[float]]:
+        return correlation_significance_matrix(
+            self.cols,
+            alpha=self.alpha,
+            N=self.vector_length,
+            corr_matrix=self.correlation_matrix,
+        )
+
 
     @cached_property
     def partial_correlation_vector(self) -> list[float]:

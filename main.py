@@ -20,6 +20,8 @@ def main(args: Args):
     print_vector(data.std_vector)
     print("\nCorr matrix: ")
     print_matrix(data.correlation_matrix)
+    print("\nCorr significance matrix: ")
+    print_matrix(data.correlation_significance_matrix)
     print("\nCov matrix: ")
     print_matrix(data.covariance_matrix)
     print("\nPartial corr vector: ")
