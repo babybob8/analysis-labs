@@ -9,7 +9,7 @@ def main(args: Args):
         print_help()
         return
 
-    data = Data(DataMatrix(parse_vectors_file(args.data_file)))
+    data = Data(args.data_file)
     print("Dim: ")
     print(f"{auto_format(data.dimensions)}")
     print("\nData len: ")

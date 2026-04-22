@@ -23,9 +23,9 @@ def parse_args(argv: list[str]) -> Args:
             import sys
 
             args.data_file = (
-                ".\\data\\norm3n.txt"
+                r".\data\norm3n.txt"
                 if sys.platform == "win32"
-                else "./data/norm3n.txt"
+                else r"./data/norm3n.txt"
             )
 
         if (arg == "-f") and ((i + 1) < len(argv)):

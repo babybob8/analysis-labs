@@ -1,15 +1,20 @@
 from functools import cached_property
 
-from .initial import (
+from .parser import parse_vectors_file
+
+from .analysis.initial import (
     correlation_matrix,
     covariance_matrix,
     mean_vector,
+    std_vector,
+)
+
+from .analysis.corelation import (
     mult_correlation_vector,
     mult_correlation_significance_vector,
     partial_correlation_vector,
     partial_correlation_significance_vector,
     partial_correlation_significance_intervals_vector,
-    std_vector,
 )
 
 
@@ -35,8 +40,8 @@ class DataMatrix:
 
 
 class Data:
-    def __init__(self, data_matrix: DataMatrix, alpha: float = 0.05) -> None:
-        self._data_matrix = data_matrix
+    def __init__(self, fpath: str, alpha: float = 0.05) -> None:
+        self._data_matrix = DataMatrix(parse_vectors_file(fpath))
         self._alpha = alpha
 
     @cached_property
