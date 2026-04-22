@@ -4,7 +4,7 @@ from scipy.stats import t, norm
 import numpy as np
 
 
-from .initial import correlation_matrix, mean_vector, std_vector
+from .initial import correlation_matrix
 
 
 def _det(matrix: list[list[float]]) -> float:
@@ -16,83 +16,6 @@ def _detk(matrix: list[list[float]], k: int) -> float:
         [matrix[i][j] for i in range(new_p) if i != k] for j in range(new_p) if j != k
     ]
     return np.linalg.det(new)
-
-
-def covariance_matrix(
-    columns: list[list[float]],
-    /,
-    n: int | None = None,
-    p: int | None = None,
-    means: list[float] | None = None,
-) -> list[list[float]]:
-    if n is None:
-        n = len(columns[0])
-
-    if p is None:
-        p = len(columns)
-
-    if means is None:
-        means = mean_vector(columns)
-
-    cov = [[0.0 for _ in range(p)] for _ in range(p)]
-
-    for i in range(p):
-        for j in range(p):
-            s = 0.0
-            for k in range(n):
-                s += (columns[i][k] - means[i]) * (columns[j][k] - means[j])
-            cov[i][j] = s / (n - 1)
-
-    return cov
-
-
-def duo_correlation(cov: float, stddev_psi: float, stddev_eta: float) -> float:
-    return (cov) / (stddev_psi * stddev_eta)
-
-
-def correlation_matrix(
-    columns: list[list[float]],
-    /,
-    p: int | None = None,
-    cov_matrix: list[list[float]] | None = None,
-    stddev_vector: list[float] | None = None,
-) -> list[list[float]]:
-    if p is None:
-        p = len(columns)
-
-    if cov_matrix is None:
-        cov_matrix = covariance_matrix(columns)
-
-    if stddev_vector is None:
-        stddev_vector = std_vector(columns)
-
-    d_cor = [[0.0 for _ in range(p)] for _ in range(p)]
-    for i in range(p):
-        for j in range(p):
-            d_cor[j][i] = duo_correlation(
-                cov_matrix[i][j], stddev_vector[j], stddev_vector[i]
-            )
-            d_cor[j][i] = d_cor[j][i] if d_cor[j][i] < 1 else 0.99999999999999
-
-    return d_cor
-
-def correlation_significance_matrix(
-    columns: list[list[float]],
-    /,
-    alpha: float = 0.05,
-    N: int | None = None,
-    corr_matrix: list[list[float]] | None = None,
-) -> list[list[bool]]:
-    if N is None:
-        N = len(columns[0])
-
-    if corr_matrix is None:
-        corr_matrix = correlation_matrix(columns)
-    
-    q = t.ppf(1 - (alpha / 2), df=N-2)
-    t_mat = [[((r*sqrt(N-2)) / sqrt(1-r**2)) for r in row] for row in corr_matrix]
-    res_mat = [[True if abs(t) > q else False for t in row] for row in t_mat]
-    return res_mat
 
 
 def partial_correlation(i: int, j: int, d: int, r: list[list[float]]) -> float:
