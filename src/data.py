@@ -1,4 +1,6 @@
 from functools import cached_property
+from typing import Self
+from math import sqrt
 
 from .parser import parse_vectors_file
 
@@ -39,10 +41,42 @@ class DataMatrix:
     def cols(self) -> list[list[float]]:
         return [list(col) for col in zip(*self._rows)]
 
+    @staticmethod
+    def standartize(cols, rows) -> Self:
+
+        means = []
+        stds = []
+
+        for col in cols:
+            mean = sum(col) / len(col)
+            variance = sum((x - mean) ** 2 for x in col) / len(col)
+            std = sqrt(variance)
+
+            means.append(mean)
+            stds.append(std)
+
+        new_rows = []
+        for row in rows:
+            new_row = []
+            for j, x in enumerate(row):
+                std = stds[j]
+                if std == 0:
+                    new_row.append(0.0)
+                else:
+                    new_row.append((x - means[j]) / std)
+            new_rows.append(new_row)
+
+        return DataMatrix(new_rows)
+
 
 class Data:
-    def __init__(self, fpath: str, alpha: float = 0.05) -> None:
-        self._data_matrix = DataMatrix(parse_vectors_file(fpath))
+    def __init__(self, fpath: str, alpha: float = 0.05, /, data_matrix: DataMatrix | None = None) -> None:
+        if data_matrix:
+            self._data_matrix = data_matrix
+
+        else:
+            self._data_matrix = DataMatrix(parse_vectors_file(fpath))
+
         self._alpha = alpha
 
     @cached_property

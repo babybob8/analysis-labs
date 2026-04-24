@@ -1,1 +1,0 @@
-uv run ./.venv/Lib/site-packages/PySide6/designer.exe

@@ -1,1 +1,0 @@
-uv run ./.venv/Scripts/pyuic6.exe -w 52 -o ./src/visual/compui ./dotui/

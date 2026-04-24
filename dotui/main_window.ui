@@ -26,7 +26,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>33</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -39,12 +39,16 @@
     <property name="title">
      <string>Visual</string>
     </property>
+    <addaction name="separator"/>
+    <addaction name="actionStats"/>
+    <addaction name="separator"/>
     <addaction name="actionScatter_plot"/>
     <addaction name="actionParallel_coordinates"/>
     <addaction name="actionHeatmap"/>
     <addaction name="actionBubble_chart"/>
+    <addaction name="separator"/>
    </widget>
-   <widget class="QMenu" name="menuGraphs">
+   <widget class="QMenu" name="menuWindows">
     <property name="title">
      <string>Windows</string>
     </property>
@@ -53,7 +57,7 @@
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuVisualization"/>
-   <addaction name="menuGraphs"/>
+   <addaction name="menuWindows"/>
   </widget>
   <action name="actionLoad">
    <property name="text">
@@ -83,6 +87,11 @@
   <action name="actionClose_All">
    <property name="text">
     <string>Close All</string>
+   </property>
+  </action>
+  <action name="actionStats">
+   <property name="text">
+    <string>Stats</string>
    </property>
   </action>
  </widget>
