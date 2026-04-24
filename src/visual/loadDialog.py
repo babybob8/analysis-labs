@@ -4,16 +4,21 @@ from ..data import Data, DataMatrix
 from PyQt6.QtWidgets import QDialog, QFileDialog
 from PyQt6.QtCore import pyqtSignal
 
+from pathlib import Path
+
+
+
 
 class LoadDialog(QDialog):
     data_submitted = pyqtSignal(Data)
+    default_path = Path("./data/norm3n.txt")
 
     def __init__(self):
         super().__init__()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
 
-        self.ui.pathLineEdit.setText("Empty file path")
+        self.ui.pathLineEdit.setText(f"{self.default_path}")
         self.ui.loadButton.clicked.connect(self.onButtonLoad)
         self.ui.buttonBox.accepted.connect(self.submit_data)
         self.ui.buttonBox.rejected.connect(self.reject)
@@ -28,15 +33,14 @@ class LoadDialog(QDialog):
         elif flag == "standartize":
             self._flags.append("standartize")
 
-
     def onButtonLoad(self):
         fpath, _ = QFileDialog.getOpenFileName(
             self,
             "Choose data-containing file",
             "./data/",
-            "All files(*);;Txt files(*.txt)"
+            "All files(*);;Txt files(*.txt)",
         )
-        
+
         if fpath:
             self.ui.pathLineEdit.setText(fpath)
 
@@ -46,7 +50,6 @@ class LoadDialog(QDialog):
             data = Data(data_matrix=DataMatrix.standartize(data.cols, data.rows))
 
         return data
-
 
     def submit_data(self):
         data = self.ui.pathLineEdit.text()

@@ -13,6 +13,8 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(400, 300)
+        icon = QtGui.QIcon.fromTheme(QtGui.QIcon.ThemeIcon.ListAdd)
+        Dialog.setWindowIcon(icon)
         self.gridLayout = QtWidgets.QGridLayout(Dialog)
         self.gridLayout.setObjectName("gridLayout")
         self.TODOButton_1 = QtWidgets.QPushButton(parent=Dialog)
@@ -50,7 +52,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Load"))
         self.TODOButton_1.setText(_translate("Dialog", "TODO"))
         self.loadButton.setText(_translate("Dialog", "Load"))
         self.standartizeButton.setText(_translate("Dialog", "Standartize"))

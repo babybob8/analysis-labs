@@ -43,7 +43,6 @@ class DataMatrix:
 
     @staticmethod
     def standartize(cols, rows) -> Self:
-
         means = []
         stds = []
 
@@ -70,12 +69,21 @@ class DataMatrix:
 
 
 class Data:
-    def __init__(self, fpath: str, alpha: float = 0.05, /, data_matrix: DataMatrix | None = None) -> None:
-        if data_matrix:
+    def __init__(
+        self,
+        fpath: str | None = None,
+        alpha: float = 0.05,
+        /,
+        data_matrix: DataMatrix | None = None,
+    ) -> None:
+        if data_matrix and not fpath:
             self._data_matrix = data_matrix
 
-        else:
+        if fpath and not data_matrix:
             self._data_matrix = DataMatrix(parse_vectors_file(fpath))
+
+        if not fpath and not data_matrix:
+            raise ValueError("No data -> no Data")
 
         self._alpha = alpha
 
@@ -127,7 +135,7 @@ class Data:
             cov_matrix=self.covariance_matrix,
             stddev_vector=self.std_vector,
         )
-    
+
     @cached_property
     def correlation_significance_matrix(self) -> list[list[float]]:
         return correlation_significance_matrix(
@@ -136,7 +144,6 @@ class Data:
             N=self.vector_length,
             corr_matrix=self.correlation_matrix,
         )
-
 
     @cached_property
     def partial_correlation_vector(self) -> list[float]:

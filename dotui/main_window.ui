@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>mainWindow</class>
+ <widget class="QMainWindow" name="mainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Mossad Spyware Toolkit (MST)</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/icon.jpg</normaloff>../resources/icon.jpg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -26,7 +30,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>23</height>
+     <height>33</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -52,7 +56,7 @@
     <property name="title">
      <string>Windows</string>
     </property>
-    <addaction name="actionClose_All"/>
+    <addaction name="actionCloseAll"/>
     <addaction name="separator"/>
    </widget>
    <addaction name="menuFile"/>
@@ -84,7 +88,7 @@
     <string>Bubble chart</string>
    </property>
   </action>
-  <action name="actionClose_All">
+  <action name="actionCloseAll">
    <property name="text">
     <string>Close All</string>
    </property>

@@ -2,6 +2,7 @@ from statistics import mean, stdev
 from math import sqrt
 from scipy.stats import t
 
+
 def mean_vector(columns: list[list[float]]) -> list[float]:
     mean_vector = []
     for vector in columns:
@@ -75,6 +76,7 @@ def correlation_matrix(
 
     return d_cor
 
+
 def correlation_significance_matrix(
     columns: list[list[float]],
     /,
@@ -87,13 +89,17 @@ def correlation_significance_matrix(
 
     if corr_matrix is None:
         corr_matrix = correlation_matrix(columns)
-    
-    q = t.ppf(1 - (alpha / 2), df=N-2)
-        
-    t_mat = [[
-        float("inf") if abs(1 - r**2) < 1e-12
-        else (r * sqrt(N - 2)) / sqrt(1 - r**2)
-        for r in row
-    ] for row in corr_matrix]
+
+    q = t.ppf(1 - (alpha / 2), df=N - 2)
+
+    t_mat = [
+        [
+            float("inf")
+            if abs(1 - r**2) < 1e-12
+            else (r * sqrt(N - 2)) / sqrt(1 - r**2)
+            for r in row
+        ]
+        for row in corr_matrix
+    ]
     res_mat = [[True if abs(t) > q else False for t in row] for row in t_mat]
     return res_mat

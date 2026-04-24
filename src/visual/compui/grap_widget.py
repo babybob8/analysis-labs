@@ -26,4 +26,4 @@ class Ui_graphWidget(object):
 
     def retranslateUi(self, graphWidget):
         _translate = QtCore.QCoreApplication.translate
-        graphWidget.setWindowTitle(_translate("graphWidget", "Form"))
+        graphWidget.setWindowTitle(_translate("graphWidget", "Graph"))

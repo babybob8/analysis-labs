@@ -10,6 +10,7 @@ from .initial import correlation_matrix
 def _det(matrix: list[list[float]]) -> float:
     return np.linalg.det(matrix)
 
+
 def _detk(matrix: list[list[float]], k: int) -> float:
     new_p = len(matrix)
     new = [
