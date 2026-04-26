@@ -7,7 +7,7 @@ from ..data import Data
 
 
 class StatsWidget(QWidget):
-    def __init__(self, data: Data | None):
+    def __init__(self, data: Data | None = None):
         super().__init__()
         self.ui = Ui_statsWidget()
         self.ui.setupUi(self)
@@ -16,8 +16,7 @@ class StatsWidget(QWidget):
             self.data = data
             self.fill_stats()
 
-    def fill_stats(self):
-        
+    def _fill_initial(self):
         fill_table(self.ui.lenValue, self.data.vector_length)
         fill_table(self.ui.dimValue, self.data.dimensions)
         fill_table(self.ui.meansVector, self.data.mean_vector)
@@ -25,6 +24,7 @@ class StatsWidget(QWidget):
         fill_table(self.ui.corrMatrix, self.data.correlation_matrix)
         fill_table(self.ui.corrSignifMatrix, self.data.correlation_significance_matrix)
 
+    def _fill_corr(self):
         fill_table(self.ui.covarMatrix, self.data.covariance_matrix)
 
         part_corr_vectors = [
@@ -34,7 +34,7 @@ class StatsWidget(QWidget):
                 self.data.partial_correlation_vector,
             )
         ]
-        part_corr_vectors_header = ["Lower",  "Est.", "Upper"]
+        part_corr_vectors_header = ["Lower", "Est.", "Upper"]
         fill_table(self.ui.partCorrMatrix, part_corr_vectors, part_corr_vectors_header)
 
         part_corr_header = [
@@ -48,10 +48,73 @@ class StatsWidget(QWidget):
             self.data.partial_correlation_significance_vector,
             part_corr_header,
         )
-        
+
         mult_corr_header = ["" for _ in range(self.data.dimensions)]
-        for i, j in combinations(range(self.data.dimensions), self.data.dimensions-1):
+        for i, j in combinations(range(self.data.dimensions), self.data.dimensions - 1):
             d = self.data.dimensions - i - j
             mult_corr_header[d] = f"{d}x({i}, {j})"
 
-        fill_table(self.ui.multCorrVector, self.data.mult_correlation_vector, header=mult_corr_header)
+        fill_table(
+            self.ui.multCorrVector,
+            self.data.mult_correlation_vector,
+            header=mult_corr_header,
+        )
+
+    def _fill_regr(self):
+        regr_coefs_u_header = ["Lower", "Est.", "Upper"]
+        regr_coefs_l_header = [
+            f"a{idx}"
+            for idx in range(self.data.dimensions + 1)
+            if idx != self.data.dependent + 1
+        ]
+        regr_coefs_intervals = [
+            [
+                self.data.regression_model.A_lows[i],
+                self.data.regression_model.A_hat[i],
+                self.data.regression_model.A_uppers[i],
+            ]
+            for i in range(self.data.dimensions)
+        ]
+        fill_table(
+            self.ui.regrCoefsIntervals,
+            regr_coefs_intervals,
+            regr_coefs_u_header,
+            regr_coefs_l_header,
+        )
+
+        fill_table(
+            self.ui.regrCoefsSignif,
+            self.data.regression_model.A_signif,
+            header=regr_coefs_l_header,
+        )
+
+        regr_std_coefs_header = [
+            f"a{idx}"
+            for idx in range(self.data.dimensions + 1)
+            if idx != self.data.dependent + 1 and idx != 0
+        ]
+        fill_table(
+            self.ui.regrStdCoefs,
+            self.data.regression_model.std_A_hat,
+            header=regr_std_coefs_header,
+        )
+
+        fill_table(self.ui.determinationCoef, self.data.regression_model.R2)
+        fill_table(self.ui.modelSignif, self.data.regression_model.model_signif)
+        fill_table(
+            self.ui.stdInterval,
+            [*self.data.regression_model.std_err_of_estimate_interval],
+            header=regr_coefs_u_header,
+        )
+
+        lowers, uppers = self.data.regression_model.Y_intervals
+        modelIntervals = [
+            [low, est, up]
+            for low, est, up in zip(lowers, self.data.regression_model.Y_hat, uppers)
+        ]
+        fill_table(self.ui.modelInterval, modelIntervals, header=regr_coefs_u_header)
+
+    def fill_stats(self):
+        self._fill_initial()
+        self._fill_corr()
+        self._fill_regr()

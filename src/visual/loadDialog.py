@@ -7,13 +7,11 @@ from PyQt6.QtCore import pyqtSignal
 from pathlib import Path
 
 
-
-
 class LoadDialog(QDialog):
     data_submitted = pyqtSignal(Data)
     default_path = Path("./data/norm3n.txt")
 
-    def __init__(self):
+    def __init__(self, alpha: float = 0.05, dependent: int | None = None):
         super().__init__()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
@@ -23,6 +21,8 @@ class LoadDialog(QDialog):
         self.ui.buttonBox.accepted.connect(self.submit_data)
         self.ui.buttonBox.rejected.connect(self.reject)
 
+        self._alpha = alpha
+        self._dependent = dependent
         self._flags = []
         self.ui.standartizeButton.clicked.connect(lambda: self.set_flag("standartize"))
 
@@ -45,15 +45,19 @@ class LoadDialog(QDialog):
             self.ui.pathLineEdit.setText(fpath)
 
     def preprocess_data(self, fpath):
-        data = Data(fpath)
+        data = Data(fpath, alpha=self._alpha, dependent=self._dependent)
         if "standartize" in self._flags:
-            data = Data(data_matrix=DataMatrix.standartize(data.cols, data.rows))
+            data = Data(
+                alpha=self._alpha,
+                dependent=self._dependent,
+                data_matrix=DataMatrix.standartize(data.cols),
+            )
 
         return data
 
     def submit_data(self):
         data = self.ui.pathLineEdit.text()
-        if data != "Empty file path":
+        if data != None:
             data = self.preprocess_data(data)
             self.data_submitted.emit(data)
             self.accept()

@@ -51,6 +51,8 @@
     <addaction name="actionHeatmap"/>
     <addaction name="actionBubble_chart"/>
     <addaction name="separator"/>
+    <addaction name="actionCorrelation_field"/>
+    <addaction name="actionDiagnostic_diagram"/>
    </widget>
    <widget class="QMenu" name="menuWindows">
     <property name="title">
@@ -59,9 +61,17 @@
     <addaction name="actionCloseAll"/>
     <addaction name="separator"/>
    </widget>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionAlpha"/>
+    <addaction name="actionDependent"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuVisualization"/>
    <addaction name="menuWindows"/>
+   <addaction name="menuOptions"/>
   </widget>
   <action name="actionLoad">
    <property name="text">
@@ -96,6 +106,26 @@
   <action name="actionStats">
    <property name="text">
     <string>Stats</string>
+   </property>
+  </action>
+  <action name="actionCorrelation_field">
+   <property name="text">
+    <string>Correlation field</string>
+   </property>
+  </action>
+  <action name="actionDiagnostic_diagram">
+   <property name="text">
+    <string>Diagnostic diagram</string>
+   </property>
+  </action>
+  <action name="actionAlpha">
+   <property name="text">
+    <string>Alpha</string>
+   </property>
+  </action>
+  <action name="actionDependent">
+   <property name="text">
+    <string>Dependent</string>
    </property>
   </action>
  </widget>

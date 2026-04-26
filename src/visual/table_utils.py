@@ -46,28 +46,31 @@ def _auto_format(item: float | int | bool | str) -> str:
         return f"{item}"
 
 
-def _fill_wmatrix(table: QTableWidget, matrix: matrix_t, dim: int, header: list[str] | None = None) -> None:
+def _fill_wmatrix(
+    table: QTableWidget,
+    matrix: matrix_t,
+    header: list[str] | None = None,
+    left_header: list[str] | None = None,
+) -> None:
+    rows = len(matrix)
+    cols = len(matrix[0]) if matrix else 0
+
     table.clear()
-    table.setRowCount(dim)
-    table.setColumnCount(dim)
-    
-    if header is not None:
-        table.setMaximumHeight(32 + (32 * dim))
+    table.setRowCount(rows)
+    table.setColumnCount(cols)
+    table.setMaximumHeight(32 + (32 * rows) if header is not None else 32 * rows)
 
-        for i, vec in enumerate(matrix):
-            table.setVerticalHeaderItem(i, QTableWidgetItem(header[i]))
-            table.setHorizontalHeaderItem(i, QTableWidgetItem(header[i]))
-            for j, val in enumerate(vec):
-                table.setItem(i, j, QTableWidgetItem(_auto_format(val)))
-    else:
-        table.setMaximumHeight(32 * dim)
+    for i, vec in enumerate(matrix):
+        row_label = left_header[i] if left_header is not None else ""
+        table.setVerticalHeaderItem(i, QTableWidgetItem(row_label))
 
-        for i, vec in enumerate(matrix):
-            table.setVerticalHeaderItem(i, QTableWidgetItem())
-            table.setHorizontalHeaderItem(i, QTableWidgetItem())
-            for j, val in enumerate(vec):
-                table.setItem(i, j, QTableWidgetItem(_auto_format(val)))
-        
+        for j, val in enumerate(vec):
+            table.setItem(i, j, QTableWidgetItem(_auto_format(val)))
+
+    for j in range(cols):
+        col_label = header[j] if header is not None else ""
+        table.setHorizontalHeaderItem(j, QTableWidgetItem(col_label))
+
 
 def _fill_wvector(
     table: QTableWidget, vector: vector_t, length: int, header: list[str] | None = None
@@ -75,7 +78,7 @@ def _fill_wvector(
     table.clear()
     table.setRowCount(1)
     table.setColumnCount(length)
-    
+
     if header is not None:
         table.setMaximumHeight(64)
         for j in range(length):
@@ -104,13 +107,10 @@ def fill_table(
     table: QTableWidget,
     filler: matrix_t | vector_t | float | int | bool | str,
     header: list[str] | None = None,
+    left_header: list[str] | None = None,
 ) -> None:
     if is_matrix(filler):
-        dim = len(filler)
-        if dim != len(filler[0]):
-            raise ValueError("Matrix is not square.")
-
-        _fill_wmatrix(table, filler, dim, header)
+        _fill_wmatrix(table, filler, header, left_header)
 
     elif is_vector(filler):
         length = len(filler)

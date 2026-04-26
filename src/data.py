@@ -20,71 +20,78 @@ from .analysis.corelation import (
     partial_correlation_significance_intervals_vector,
 )
 
+from .analysis.regression import RegressionModel, regression
+
+from .preprocess import (
+    standartize as _standartize,
+)
+
 
 class DataMatrix:
-    def __init__(self, rows: list[list[float]]):
-        if not rows:
+    def __init__(
+        self,
+        rows: list[list[float]] | None = None,
+        cols: list[list[float]] | None = None,
+    ):
+        if rows is None and cols is None:
             raise ValueError("Empty data")
 
-        row_length = len(rows[0])
-        for i, row in enumerate(rows):
-            if len(row) != row_length:
-                raise ValueError(f"Inconsistent row length at row {i}")
+        if rows is not None and cols is not None:
+            raise ValueError("Either rows, or cols")
 
-        self._rows = rows
+        if cols is not None:
+            col_length = len(cols[0])
+            for i, col in enumerate(cols):
+                if len(col) != col_length:
+                    raise ValueError(f"Inconsistent col length at col {i}")
+
+            self._cols = cols
+            self._rows = [list(row) for row in zip(*self._cols)]
+
+        elif rows is not None:
+            row_length = len(rows[0])
+            for i, row in enumerate(rows):
+                if len(row) != row_length:
+                    raise ValueError(f"Inconsistent row length at row {i}")
+
+            self._rows = rows
+            self._cols = [list(col) for col in zip(*self._rows)]
 
     @property
     def rows(self):
         return self._rows
 
-    @cached_property
-    def cols(self) -> list[list[float]]:
-        return [list(col) for col in zip(*self._rows)]
+    @property
+    def cols(self):
+        return self._cols
 
     @staticmethod
-    def standartize(cols, rows) -> Self:
-        means = []
-        stds = []
-
-        for col in cols:
-            mean = sum(col) / len(col)
-            variance = sum((x - mean) ** 2 for x in col) / len(col)
-            std = sqrt(variance)
-
-            means.append(mean)
-            stds.append(std)
-
-        new_rows = []
-        for row in rows:
-            new_row = []
-            for j, x in enumerate(row):
-                std = stds[j]
-                if std == 0:
-                    new_row.append(0.0)
-                else:
-                    new_row.append((x - means[j]) / std)
-            new_rows.append(new_row)
-
-        return DataMatrix(new_rows)
+    def standartize(cols: list[list[float]]) -> Self:
+        return DataMatrix(cols=_standartize(cols))
 
 
 class Data:
     def __init__(
         self,
         fpath: str | None = None,
-        alpha: float = 0.05,
         /,
+        alpha: float = 0.05,
+        dependent: int | None = None,
         data_matrix: DataMatrix | None = None,
     ) -> None:
         if data_matrix and not fpath:
             self._data_matrix = data_matrix
 
         if fpath and not data_matrix:
-            self._data_matrix = DataMatrix(parse_vectors_file(fpath))
+            self._data_matrix = DataMatrix(rows=parse_vectors_file(fpath))
 
         if not fpath and not data_matrix:
             raise ValueError("No data -> no Data")
 
+        if dependent is None:
+            dependent = self.dimensions - 1
+
+        self._regr_dependent = dependent
         self._alpha = alpha
 
     @cached_property
@@ -105,6 +112,10 @@ class Data:
     @property
     def alpha(self) -> float:
         return self._alpha
+
+    @property
+    def dependent(self) -> int:
+        return self._regr_dependent
 
     @cached_property
     def vector_length(self) -> int:
@@ -186,4 +197,15 @@ class Data:
             N=self.vector_length,
             p=self.dimensions,
             mult_corr_vec=self.mult_correlation_vector,
+        )
+
+    @cached_property
+    def regression_model(self) -> RegressionModel:
+        return regression(
+            self.cols,
+            alpha=self.alpha,
+            stdev_vector=self.std_vector,
+            dependent=self.dependent,
+            length=self.vector_length,
+            dim=self.dimensions,
         )
