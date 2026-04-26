@@ -24,9 +24,14 @@ class Ui_Dialog(object):
         self.pathLineEdit.setObjectName("pathLineEdit")
         self.gridLayout.addWidget(self.pathLineEdit, 0, 0, 1, 1)
         self.buttonBox = QtWidgets.QDialogButtonBox(parent=Dialog)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.StandardButton.Cancel|QtWidgets.QDialogButtonBox.StandardButton.Ok)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.StandardButton.Cancel
+            | QtWidgets.QDialogButtonBox.StandardButton.Ok
+        )
         self.buttonBox.setObjectName("buttonBox")
-        self.gridLayout.addWidget(self.buttonBox, 7, 0, 1, 2, QtCore.Qt.AlignmentFlag.AlignHCenter)
+        self.gridLayout.addWidget(
+            self.buttonBox, 7, 0, 1, 2, QtCore.Qt.AlignmentFlag.AlignHCenter
+        )
         self.loadButton = QtWidgets.QPushButton(parent=Dialog)
         self.loadButton.setObjectName("loadButton")
         self.gridLayout.addWidget(self.loadButton, 0, 1, 1, 1)

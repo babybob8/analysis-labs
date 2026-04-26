@@ -13,7 +13,9 @@ class Ui_statsWidget(object):
     def setupUi(self, statsWidget):
         statsWidget.setObjectName("statsWidget")
         statsWidget.resize(426, 450)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(statsWidget.sizePolicy().hasHeightForWidth())
@@ -37,7 +39,9 @@ class Ui_statsWidget(object):
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.lenValueBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.lenValueBox.sizePolicy().hasHeightForWidth())
@@ -46,17 +50,29 @@ class Ui_statsWidget(object):
         self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.lenValueBox)
         self.verticalLayout_9.setObjectName("verticalLayout_9")
         self.lenValue = QtWidgets.QTableWidget(parent=self.lenValueBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.lenValue.sizePolicy().hasHeightForWidth())
         self.lenValue.setSizePolicy(sizePolicy)
         self.lenValue.setMaximumSize(QtCore.QSize(16777215, 31))
-        self.lenValue.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.lenValue.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.lenValue.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.lenValue.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.lenValue.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
+        self.lenValue.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.lenValue.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.lenValue.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.lenValue.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.lenValue.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
         self.lenValue.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
         self.lenValue.setObjectName("lenValue")
         self.lenValue.setColumnCount(1)
@@ -73,7 +89,9 @@ class Ui_statsWidget(object):
         self.verticalLayout_9.addWidget(self.lenValue)
         self.verticalLayout_3.addWidget(self.lenValueBox)
         self.dimValueBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.dimValueBox.sizePolicy().hasHeightForWidth())
@@ -82,17 +100,29 @@ class Ui_statsWidget(object):
         self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.dimValueBox)
         self.verticalLayout_8.setObjectName("verticalLayout_8")
         self.dimValue = QtWidgets.QTableWidget(parent=self.dimValueBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.dimValue.sizePolicy().hasHeightForWidth())
         self.dimValue.setSizePolicy(sizePolicy)
         self.dimValue.setMaximumSize(QtCore.QSize(16777215, 31))
-        self.dimValue.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.dimValue.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.dimValue.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.dimValue.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.dimValue.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
+        self.dimValue.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.dimValue.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.dimValue.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.dimValue.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.dimValue.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
         self.dimValue.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
         self.dimValue.setObjectName("dimValue")
         self.dimValue.setColumnCount(1)
@@ -109,26 +139,42 @@ class Ui_statsWidget(object):
         self.verticalLayout_8.addWidget(self.dimValue)
         self.verticalLayout_3.addWidget(self.dimValueBox)
         self.meansVectorBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.meansVectorBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.meansVectorBox.sizePolicy().hasHeightForWidth()
+        )
         self.meansVectorBox.setSizePolicy(sizePolicy)
         self.meansVectorBox.setObjectName("meansVectorBox")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.meansVectorBox)
         self.verticalLayout_6.setObjectName("verticalLayout_6")
         self.meansVector = QtWidgets.QTableWidget(parent=self.meansVectorBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.meansVector.sizePolicy().hasHeightForWidth())
         self.meansVector.setSizePolicy(sizePolicy)
         self.meansVector.setMaximumSize(QtCore.QSize(16777215, 31))
-        self.meansVector.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.meansVector.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.meansVector.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.meansVector.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.meansVector.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
+        self.meansVector.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.meansVector.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.meansVector.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.meansVector.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.meansVector.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
         self.meansVector.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
         self.meansVector.setObjectName("meansVector")
         self.meansVector.setColumnCount(3)
@@ -152,28 +198,52 @@ class Ui_statsWidget(object):
         self.meansVector.verticalHeader().setVisible(False)
         self.verticalLayout_6.addWidget(self.meansVector)
         self.verticalLayout_3.addWidget(self.meansVectorBox)
-        self.rootSquareMeansVectorBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum)
+        self.rootSquareMeansVectorBox = QtWidgets.QGroupBox(
+            parent=self.scrollAreaWidgetContents
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.rootSquareMeansVectorBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.rootSquareMeansVectorBox.sizePolicy().hasHeightForWidth()
+        )
         self.rootSquareMeansVectorBox.setSizePolicy(sizePolicy)
         self.rootSquareMeansVectorBox.setObjectName("rootSquareMeansVectorBox")
         self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.rootSquareMeansVectorBox)
         self.verticalLayout_7.setObjectName("verticalLayout_7")
-        self.rootSquareMeansVector = QtWidgets.QTableWidget(parent=self.rootSquareMeansVectorBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum)
+        self.rootSquareMeansVector = QtWidgets.QTableWidget(
+            parent=self.rootSquareMeansVectorBox
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.rootSquareMeansVector.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.rootSquareMeansVector.sizePolicy().hasHeightForWidth()
+        )
         self.rootSquareMeansVector.setSizePolicy(sizePolicy)
         self.rootSquareMeansVector.setMaximumSize(QtCore.QSize(16777215, 31))
-        self.rootSquareMeansVector.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.rootSquareMeansVector.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.rootSquareMeansVector.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.rootSquareMeansVector.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.rootSquareMeansVector.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
-        self.rootSquareMeansVector.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
+        self.rootSquareMeansVector.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.rootSquareMeansVector.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.rootSquareMeansVector.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.rootSquareMeansVector.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.rootSquareMeansVector.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
+        self.rootSquareMeansVector.setSupportedDragActions(
+            QtCore.Qt.DropAction.IgnoreAction
+        )
         self.rootSquareMeansVector.setObjectName("rootSquareMeansVector")
         self.rootSquareMeansVector.setColumnCount(3)
         self.rootSquareMeansVector.setRowCount(1)
@@ -197,20 +267,34 @@ class Ui_statsWidget(object):
         self.verticalLayout_7.addWidget(self.rootSquareMeansVector)
         self.verticalLayout_3.addWidget(self.rootSquareMeansVectorBox)
         self.corrMatrixBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.corrMatrixBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.corrMatrixBox.sizePolicy().hasHeightForWidth()
+        )
         self.corrMatrixBox.setSizePolicy(sizePolicy)
         self.corrMatrixBox.setObjectName("corrMatrixBox")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.corrMatrixBox)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.corrMatrix = QtWidgets.QTableWidget(parent=self.corrMatrixBox)
-        self.corrMatrix.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.corrMatrix.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.corrMatrix.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.corrMatrix.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.corrMatrix.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
+        self.corrMatrix.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.corrMatrix.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.corrMatrix.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.corrMatrix.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.corrMatrix.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
         self.corrMatrix.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
         self.corrMatrix.setObjectName("corrMatrix")
         self.corrMatrix.setColumnCount(3)
@@ -250,21 +334,37 @@ class Ui_statsWidget(object):
         self.corrMatrix.verticalHeader().setVisible(False)
         self.verticalLayout_4.addWidget(self.corrMatrix)
         self.verticalLayout_3.addWidget(self.corrMatrixBox)
-        self.corrSignifMatrixBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.corrSignifMatrixBox = QtWidgets.QGroupBox(
+            parent=self.scrollAreaWidgetContents
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.corrSignifMatrixBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.corrSignifMatrixBox.sizePolicy().hasHeightForWidth()
+        )
         self.corrSignifMatrixBox.setSizePolicy(sizePolicy)
         self.corrSignifMatrixBox.setObjectName("corrSignifMatrixBox")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.corrSignifMatrixBox)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.corrSignifMatrix = QtWidgets.QTableWidget(parent=self.corrSignifMatrixBox)
-        self.corrSignifMatrix.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.corrSignifMatrix.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.corrSignifMatrix.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.corrSignifMatrix.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.corrSignifMatrix.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
+        self.corrSignifMatrix.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.corrSignifMatrix.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.corrSignifMatrix.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.corrSignifMatrix.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.corrSignifMatrix.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
         self.corrSignifMatrix.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
         self.corrSignifMatrix.setObjectName("corrSignifMatrix")
         self.corrSignifMatrix.setColumnCount(3)
@@ -319,24 +419,40 @@ class Ui_statsWidget(object):
         self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.covarMatrixBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.covarMatrixBox = QtWidgets.QGroupBox(
+            parent=self.scrollAreaWidgetContents_3
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.covarMatrixBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.covarMatrixBox.sizePolicy().hasHeightForWidth()
+        )
         self.covarMatrixBox.setSizePolicy(sizePolicy)
         self.covarMatrixBox.setObjectName("covarMatrixBox")
         self.verticalLayout_23 = QtWidgets.QVBoxLayout(self.covarMatrixBox)
         self.verticalLayout_23.setObjectName("verticalLayout_23")
         self.covarMatrix = QtWidgets.QTableWidget(parent=self.covarMatrixBox)
-        self.covarMatrix.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.covarMatrix.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.covarMatrix.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.covarMatrix.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.covarMatrix.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.covarMatrix.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.covarMatrix.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.covarMatrix.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
         self.covarMatrix.setTabKeyNavigation(False)
         self.covarMatrix.setProperty("showDropIndicator", False)
         self.covarMatrix.setDragDropOverwriteMode(False)
-        self.covarMatrix.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
+        self.covarMatrix.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
         self.covarMatrix.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
         self.covarMatrix.setObjectName("covarMatrix")
         self.covarMatrix.setColumnCount(3)
@@ -376,21 +492,37 @@ class Ui_statsWidget(object):
         self.covarMatrix.verticalHeader().setVisible(False)
         self.verticalLayout_23.addWidget(self.covarMatrix)
         self.verticalLayout.addWidget(self.covarMatrixBox)
-        self.partCorrMatrixBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.partCorrMatrixBox = QtWidgets.QGroupBox(
+            parent=self.scrollAreaWidgetContents_3
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.partCorrMatrixBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.partCorrMatrixBox.sizePolicy().hasHeightForWidth()
+        )
         self.partCorrMatrixBox.setSizePolicy(sizePolicy)
         self.partCorrMatrixBox.setObjectName("partCorrMatrixBox")
         self.verticalLayout_24 = QtWidgets.QVBoxLayout(self.partCorrMatrixBox)
         self.verticalLayout_24.setObjectName("verticalLayout_24")
         self.partCorrMatrix = QtWidgets.QTableWidget(parent=self.partCorrMatrixBox)
-        self.partCorrMatrix.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.partCorrMatrix.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.partCorrMatrix.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.partCorrMatrix.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.partCorrMatrix.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
+        self.partCorrMatrix.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.partCorrMatrix.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.partCorrMatrix.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.partCorrMatrix.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.partCorrMatrix.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
         self.partCorrMatrix.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
         self.partCorrMatrix.setObjectName("partCorrMatrix")
         self.partCorrMatrix.setColumnCount(3)
@@ -430,28 +562,52 @@ class Ui_statsWidget(object):
         self.partCorrMatrix.verticalHeader().setVisible(False)
         self.verticalLayout_24.addWidget(self.partCorrMatrix)
         self.verticalLayout.addWidget(self.partCorrMatrixBox)
-        self.partCorrSignifVectorBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum)
+        self.partCorrSignifVectorBox = QtWidgets.QGroupBox(
+            parent=self.scrollAreaWidgetContents_3
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.partCorrSignifVectorBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.partCorrSignifVectorBox.sizePolicy().hasHeightForWidth()
+        )
         self.partCorrSignifVectorBox.setSizePolicy(sizePolicy)
         self.partCorrSignifVectorBox.setObjectName("partCorrSignifVectorBox")
         self.verticalLayout_21 = QtWidgets.QVBoxLayout(self.partCorrSignifVectorBox)
         self.verticalLayout_21.setObjectName("verticalLayout_21")
-        self.partCorrSignifVector = QtWidgets.QTableWidget(parent=self.partCorrSignifVectorBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum)
+        self.partCorrSignifVector = QtWidgets.QTableWidget(
+            parent=self.partCorrSignifVectorBox
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.partCorrSignifVector.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.partCorrSignifVector.sizePolicy().hasHeightForWidth()
+        )
         self.partCorrSignifVector.setSizePolicy(sizePolicy)
         self.partCorrSignifVector.setMaximumSize(QtCore.QSize(16777215, 64))
-        self.partCorrSignifVector.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.partCorrSignifVector.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.partCorrSignifVector.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.partCorrSignifVector.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.partCorrSignifVector.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
-        self.partCorrSignifVector.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
+        self.partCorrSignifVector.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.partCorrSignifVector.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.partCorrSignifVector.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.partCorrSignifVector.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.partCorrSignifVector.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
+        self.partCorrSignifVector.setSupportedDragActions(
+            QtCore.Qt.DropAction.IgnoreAction
+        )
         self.partCorrSignifVector.setObjectName("partCorrSignifVector")
         self.partCorrSignifVector.setColumnCount(3)
         self.partCorrSignifVector.setRowCount(1)
@@ -474,27 +630,47 @@ class Ui_statsWidget(object):
         self.partCorrSignifVector.verticalHeader().setVisible(False)
         self.verticalLayout_21.addWidget(self.partCorrSignifVector)
         self.verticalLayout.addWidget(self.partCorrSignifVectorBox)
-        self.multCorrVectorBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum)
+        self.multCorrVectorBox = QtWidgets.QGroupBox(
+            parent=self.scrollAreaWidgetContents_3
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.multCorrVectorBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.multCorrVectorBox.sizePolicy().hasHeightForWidth()
+        )
         self.multCorrVectorBox.setSizePolicy(sizePolicy)
         self.multCorrVectorBox.setObjectName("multCorrVectorBox")
         self.verticalLayout_22 = QtWidgets.QVBoxLayout(self.multCorrVectorBox)
         self.verticalLayout_22.setObjectName("verticalLayout_22")
         self.multCorrVector = QtWidgets.QTableWidget(parent=self.multCorrVectorBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.multCorrVector.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.multCorrVector.sizePolicy().hasHeightForWidth()
+        )
         self.multCorrVector.setSizePolicy(sizePolicy)
         self.multCorrVector.setMaximumSize(QtCore.QSize(16777215, 64))
-        self.multCorrVector.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.multCorrVector.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.multCorrVector.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.multCorrVector.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.multCorrVector.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
+        self.multCorrVector.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.multCorrVector.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.multCorrVector.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.multCorrVector.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.multCorrVector.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
         self.multCorrVector.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
         self.multCorrVector.setObjectName("multCorrVector")
         self.multCorrVector.setColumnCount(3)
@@ -526,10 +702,14 @@ class Ui_statsWidget(object):
         self.verticalLayout_11 = QtWidgets.QVBoxLayout(self.regressionTab)
         self.verticalLayout_11.setObjectName("verticalLayout_11")
         self.regressionScrollArea = QtWidgets.QScrollArea(parent=self.regressionTab)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.regressionScrollArea.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.regressionScrollArea.sizePolicy().hasHeightForWidth()
+        )
         self.regressionScrollArea.setSizePolicy(sizePolicy)
         self.regressionScrollArea.setWidgetResizable(True)
         self.regressionScrollArea.setObjectName("regressionScrollArea")
@@ -538,28 +718,52 @@ class Ui_statsWidget(object):
         self.scrollAreaWidgetContents_4.setObjectName("scrollAreaWidgetContents_4")
         self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_13.setObjectName("verticalLayout_13")
-        self.regrCoefsIntervalsBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
+        self.regrCoefsIntervalsBox = QtWidgets.QGroupBox(
+            parent=self.scrollAreaWidgetContents_4
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.regrCoefsIntervalsBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.regrCoefsIntervalsBox.sizePolicy().hasHeightForWidth()
+        )
         self.regrCoefsIntervalsBox.setSizePolicy(sizePolicy)
         self.regrCoefsIntervalsBox.setObjectName("regrCoefsIntervalsBox")
         self.verticalLayout_29 = QtWidgets.QVBoxLayout(self.regrCoefsIntervalsBox)
         self.verticalLayout_29.setObjectName("verticalLayout_29")
-        self.regrCoefsIntervals = QtWidgets.QTableWidget(parent=self.regrCoefsIntervalsBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum)
+        self.regrCoefsIntervals = QtWidgets.QTableWidget(
+            parent=self.regrCoefsIntervalsBox
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.regrCoefsIntervals.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.regrCoefsIntervals.sizePolicy().hasHeightForWidth()
+        )
         self.regrCoefsIntervals.setSizePolicy(sizePolicy)
         self.regrCoefsIntervals.setMaximumSize(QtCore.QSize(16777215, 128))
-        self.regrCoefsIntervals.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.regrCoefsIntervals.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.regrCoefsIntervals.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.regrCoefsIntervals.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.regrCoefsIntervals.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
-        self.regrCoefsIntervals.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
+        self.regrCoefsIntervals.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.regrCoefsIntervals.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.regrCoefsIntervals.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.regrCoefsIntervals.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.regrCoefsIntervals.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
+        self.regrCoefsIntervals.setSupportedDragActions(
+            QtCore.Qt.DropAction.IgnoreAction
+        )
         self.regrCoefsIntervals.setObjectName("regrCoefsIntervals")
         self.regrCoefsIntervals.setColumnCount(3)
         self.regrCoefsIntervals.setRowCount(3)
@@ -586,27 +790,47 @@ class Ui_statsWidget(object):
         self.regrCoefsIntervals.verticalHeader().setVisible(True)
         self.verticalLayout_29.addWidget(self.regrCoefsIntervals)
         self.verticalLayout_13.addWidget(self.regrCoefsIntervalsBox)
-        self.regrCoefsSignifBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
+        self.regrCoefsSignifBox = QtWidgets.QGroupBox(
+            parent=self.scrollAreaWidgetContents_4
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.regrCoefsSignifBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.regrCoefsSignifBox.sizePolicy().hasHeightForWidth()
+        )
         self.regrCoefsSignifBox.setSizePolicy(sizePolicy)
         self.regrCoefsSignifBox.setObjectName("regrCoefsSignifBox")
         self.verticalLayout_31 = QtWidgets.QVBoxLayout(self.regrCoefsSignifBox)
         self.verticalLayout_31.setObjectName("verticalLayout_31")
         self.regrCoefsSignif = QtWidgets.QTableWidget(parent=self.regrCoefsSignifBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.regrCoefsSignif.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.regrCoefsSignif.sizePolicy().hasHeightForWidth()
+        )
         self.regrCoefsSignif.setSizePolicy(sizePolicy)
         self.regrCoefsSignif.setMaximumSize(QtCore.QSize(16777215, 64))
-        self.regrCoefsSignif.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.regrCoefsSignif.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.regrCoefsSignif.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.regrCoefsSignif.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.regrCoefsSignif.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
+        self.regrCoefsSignif.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.regrCoefsSignif.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.regrCoefsSignif.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.regrCoefsSignif.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.regrCoefsSignif.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
         self.regrCoefsSignif.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
         self.regrCoefsSignif.setObjectName("regrCoefsSignif")
         self.regrCoefsSignif.setColumnCount(3)
@@ -624,27 +848,45 @@ class Ui_statsWidget(object):
         self.regrCoefsSignif.verticalHeader().setVisible(False)
         self.verticalLayout_31.addWidget(self.regrCoefsSignif)
         self.verticalLayout_13.addWidget(self.regrCoefsSignifBox)
-        self.regrStdCoefsBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
+        self.regrStdCoefsBox = QtWidgets.QGroupBox(
+            parent=self.scrollAreaWidgetContents_4
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.regrStdCoefsBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.regrStdCoefsBox.sizePolicy().hasHeightForWidth()
+        )
         self.regrStdCoefsBox.setSizePolicy(sizePolicy)
         self.regrStdCoefsBox.setObjectName("regrStdCoefsBox")
         self.verticalLayout_30 = QtWidgets.QVBoxLayout(self.regrStdCoefsBox)
         self.verticalLayout_30.setObjectName("verticalLayout_30")
         self.regrStdCoefs = QtWidgets.QTableWidget(parent=self.regrStdCoefsBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.regrStdCoefs.sizePolicy().hasHeightForWidth())
         self.regrStdCoefs.setSizePolicy(sizePolicy)
         self.regrStdCoefs.setMaximumSize(QtCore.QSize(16777215, 64))
-        self.regrStdCoefs.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.regrStdCoefs.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.regrStdCoefs.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.regrStdCoefs.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.regrStdCoefs.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
+        self.regrStdCoefs.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.regrStdCoefs.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.regrStdCoefs.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.regrStdCoefs.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.regrStdCoefs.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
         self.regrStdCoefs.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
         self.regrStdCoefs.setObjectName("regrStdCoefs")
         self.regrStdCoefs.setColumnCount(3)
@@ -666,28 +908,52 @@ class Ui_statsWidget(object):
         self.regrStdCoefs.verticalHeader().setVisible(False)
         self.verticalLayout_30.addWidget(self.regrStdCoefs)
         self.verticalLayout_13.addWidget(self.regrStdCoefsBox)
-        self.determinationCoefBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
+        self.determinationCoefBox = QtWidgets.QGroupBox(
+            parent=self.scrollAreaWidgetContents_4
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.determinationCoefBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.determinationCoefBox.sizePolicy().hasHeightForWidth()
+        )
         self.determinationCoefBox.setSizePolicy(sizePolicy)
         self.determinationCoefBox.setObjectName("determinationCoefBox")
         self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.determinationCoefBox)
         self.verticalLayout_12.setObjectName("verticalLayout_12")
-        self.determinationCoef = QtWidgets.QTableWidget(parent=self.determinationCoefBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum)
+        self.determinationCoef = QtWidgets.QTableWidget(
+            parent=self.determinationCoefBox
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.determinationCoef.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.determinationCoef.sizePolicy().hasHeightForWidth()
+        )
         self.determinationCoef.setSizePolicy(sizePolicy)
         self.determinationCoef.setMaximumSize(QtCore.QSize(16777215, 31))
-        self.determinationCoef.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.determinationCoef.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.determinationCoef.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.determinationCoef.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.determinationCoef.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
-        self.determinationCoef.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
+        self.determinationCoef.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.determinationCoef.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.determinationCoef.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.determinationCoef.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.determinationCoef.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
+        self.determinationCoef.setSupportedDragActions(
+            QtCore.Qt.DropAction.IgnoreAction
+        )
         self.determinationCoef.setObjectName("determinationCoef")
         self.determinationCoef.setColumnCount(1)
         self.determinationCoef.setRowCount(1)
@@ -702,27 +968,45 @@ class Ui_statsWidget(object):
         self.determinationCoef.verticalHeader().setVisible(False)
         self.verticalLayout_12.addWidget(self.determinationCoef)
         self.verticalLayout_13.addWidget(self.determinationCoefBox)
-        self.modelSignifBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
+        self.modelSignifBox = QtWidgets.QGroupBox(
+            parent=self.scrollAreaWidgetContents_4
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.modelSignifBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.modelSignifBox.sizePolicy().hasHeightForWidth()
+        )
         self.modelSignifBox.setSizePolicy(sizePolicy)
         self.modelSignifBox.setObjectName("modelSignifBox")
         self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.modelSignifBox)
         self.verticalLayout_10.setObjectName("verticalLayout_10")
         self.modelSignif = QtWidgets.QTableWidget(parent=self.modelSignifBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.modelSignif.sizePolicy().hasHeightForWidth())
         self.modelSignif.setSizePolicy(sizePolicy)
         self.modelSignif.setMaximumSize(QtCore.QSize(16777215, 31))
-        self.modelSignif.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.modelSignif.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.modelSignif.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.modelSignif.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.modelSignif.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
+        self.modelSignif.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.modelSignif.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.modelSignif.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.modelSignif.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.modelSignif.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
         self.modelSignif.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
         self.modelSignif.setObjectName("modelSignif")
         self.modelSignif.setColumnCount(1)
@@ -738,29 +1022,47 @@ class Ui_statsWidget(object):
         self.modelSignif.verticalHeader().setVisible(False)
         self.verticalLayout_10.addWidget(self.modelSignif)
         self.verticalLayout_13.addWidget(self.modelSignifBox)
-        self.stdIntervalBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
+        self.stdIntervalBox = QtWidgets.QGroupBox(
+            parent=self.scrollAreaWidgetContents_4
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.stdIntervalBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.stdIntervalBox.sizePolicy().hasHeightForWidth()
+        )
         self.stdIntervalBox.setSizePolicy(sizePolicy)
         self.stdIntervalBox.setObjectName("stdIntervalBox")
         self.verticalLayout_26 = QtWidgets.QVBoxLayout(self.stdIntervalBox)
         self.verticalLayout_26.setObjectName("verticalLayout_26")
         self.stdInterval = QtWidgets.QTableWidget(parent=self.stdIntervalBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.stdInterval.sizePolicy().hasHeightForWidth())
         self.stdInterval.setSizePolicy(sizePolicy)
-        self.stdInterval.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.stdInterval.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.stdInterval.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.stdInterval.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.stdInterval.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.stdInterval.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.stdInterval.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.stdInterval.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
         self.stdInterval.setTabKeyNavigation(False)
         self.stdInterval.setProperty("showDropIndicator", False)
         self.stdInterval.setDragDropOverwriteMode(False)
-        self.stdInterval.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
+        self.stdInterval.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
         self.stdInterval.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
         self.stdInterval.setObjectName("stdInterval")
         self.stdInterval.setColumnCount(3)
@@ -784,20 +1086,32 @@ class Ui_statsWidget(object):
         self.stdInterval.verticalHeader().setVisible(False)
         self.verticalLayout_26.addWidget(self.stdInterval)
         self.verticalLayout_13.addWidget(self.stdIntervalBox)
-        self.modelIntervalBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.modelIntervalBox = QtWidgets.QGroupBox(
+            parent=self.scrollAreaWidgetContents_4
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.modelIntervalBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.modelIntervalBox.sizePolicy().hasHeightForWidth()
+        )
         self.modelIntervalBox.setSizePolicy(sizePolicy)
         self.modelIntervalBox.setObjectName("modelIntervalBox")
         self.verticalLayout_28 = QtWidgets.QVBoxLayout(self.modelIntervalBox)
         self.verticalLayout_28.setObjectName("verticalLayout_28")
-        self.modelIntervalScrollArea = QtWidgets.QScrollArea(parent=self.modelIntervalBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.modelIntervalScrollArea = QtWidgets.QScrollArea(
+            parent=self.modelIntervalBox
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.modelIntervalScrollArea.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.modelIntervalScrollArea.sizePolicy().hasHeightForWidth()
+        )
         self.modelIntervalScrollArea.setSizePolicy(sizePolicy)
         self.modelIntervalScrollArea.setWidgetResizable(True)
         self.modelIntervalScrollArea.setObjectName("modelIntervalScrollArea")
@@ -806,18 +1120,34 @@ class Ui_statsWidget(object):
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.verticalLayout_14 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_14.setObjectName("verticalLayout_14")
-        self.modelInterval = QtWidgets.QTableWidget(parent=self.scrollAreaWidgetContents_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.modelInterval = QtWidgets.QTableWidget(
+            parent=self.scrollAreaWidgetContents_2
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.modelInterval.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.modelInterval.sizePolicy().hasHeightForWidth()
+        )
         self.modelInterval.setSizePolicy(sizePolicy)
         self.modelInterval.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        self.modelInterval.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.modelInterval.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.modelInterval.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.modelInterval.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.modelInterval.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.NoSelection)
+        self.modelInterval.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.modelInterval.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.modelInterval.setSizeAdjustPolicy(
+            QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
+        self.modelInterval.setEditTriggers(
+            QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers
+        )
+        self.modelInterval.setSelectionMode(
+            QtWidgets.QAbstractItemView.SelectionMode.NoSelection
+        )
         self.modelInterval.setSupportedDragActions(QtCore.Qt.DropAction.IgnoreAction)
         self.modelInterval.setObjectName("modelInterval")
         self.modelInterval.setColumnCount(3)
@@ -963,7 +1293,9 @@ class Ui_statsWidget(object):
         item = self.meansVector.item(0, 2)
         item.setText(_translate("statsWidget", "3"))
         self.meansVector.setSortingEnabled(__sortingEnabled)
-        self.rootSquareMeansVectorBox.setTitle(_translate("statsWidget", "Root Square Means Vecor"))
+        self.rootSquareMeansVectorBox.setTitle(
+            _translate("statsWidget", "Root Square Means Vecor")
+        )
         item = self.rootSquareMeansVector.verticalHeaderItem(0)
         item.setText(_translate("statsWidget", "0"))
         item = self.rootSquareMeansVector.horizontalHeaderItem(0)
@@ -1015,7 +1347,9 @@ class Ui_statsWidget(object):
         item = self.corrMatrix.item(2, 2)
         item.setText(_translate("statsWidget", "8"))
         self.corrMatrix.setSortingEnabled(__sortingEnabled)
-        self.corrSignifMatrixBox.setTitle(_translate("statsWidget", "Correlation Significance Matrix"))
+        self.corrSignifMatrixBox.setTitle(
+            _translate("statsWidget", "Correlation Significance Matrix")
+        )
         item = self.corrSignifMatrix.verticalHeaderItem(0)
         item.setText(_translate("statsWidget", "0"))
         item = self.corrSignifMatrix.verticalHeaderItem(1)
@@ -1049,7 +1383,10 @@ class Ui_statsWidget(object):
         item = self.corrSignifMatrix.item(2, 2)
         item.setText(_translate("statsWidget", "8"))
         self.corrSignifMatrix.setSortingEnabled(__sortingEnabled)
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.initialTab), _translate("statsWidget", "Initial"))
+        self.tabWidget.setTabText(
+            self.tabWidget.indexOf(self.initialTab),
+            _translate("statsWidget", "Initial"),
+        )
         self.covarMatrixBox.setTitle(_translate("statsWidget", "Covariance Matrix"))
         item = self.covarMatrix.verticalHeaderItem(0)
         item.setText(_translate("statsWidget", "0"))
@@ -1084,7 +1421,9 @@ class Ui_statsWidget(object):
         item = self.covarMatrix.item(2, 2)
         item.setText(_translate("statsWidget", "8"))
         self.covarMatrix.setSortingEnabled(__sortingEnabled)
-        self.partCorrMatrixBox.setTitle(_translate("statsWidget", "Partial Correlation Intervals"))
+        self.partCorrMatrixBox.setTitle(
+            _translate("statsWidget", "Partial Correlation Intervals")
+        )
         item = self.partCorrMatrix.verticalHeaderItem(0)
         item.setText(_translate("statsWidget", "0"))
         item = self.partCorrMatrix.verticalHeaderItem(1)
@@ -1118,7 +1457,9 @@ class Ui_statsWidget(object):
         item = self.partCorrMatrix.item(2, 2)
         item.setText(_translate("statsWidget", "8"))
         self.partCorrMatrix.setSortingEnabled(__sortingEnabled)
-        self.partCorrSignifVectorBox.setTitle(_translate("statsWidget", "Partial Correlation Significance Vector"))
+        self.partCorrSignifVectorBox.setTitle(
+            _translate("statsWidget", "Partial Correlation Significance Vector")
+        )
         item = self.partCorrSignifVector.verticalHeaderItem(0)
         item.setText(_translate("statsWidget", "0"))
         item = self.partCorrSignifVector.horizontalHeaderItem(0)
@@ -1136,7 +1477,9 @@ class Ui_statsWidget(object):
         item = self.partCorrSignifVector.item(0, 2)
         item.setText(_translate("statsWidget", "3"))
         self.partCorrSignifVector.setSortingEnabled(__sortingEnabled)
-        self.multCorrVectorBox.setTitle(_translate("statsWidget", "Mult Correlation Vector"))
+        self.multCorrVectorBox.setTitle(
+            _translate("statsWidget", "Mult Correlation Vector")
+        )
         item = self.multCorrVector.verticalHeaderItem(0)
         item.setText(_translate("statsWidget", "0"))
         item = self.multCorrVector.horizontalHeaderItem(0)
@@ -1154,8 +1497,13 @@ class Ui_statsWidget(object):
         item = self.multCorrVector.item(0, 2)
         item.setText(_translate("statsWidget", "3"))
         self.multCorrVector.setSortingEnabled(__sortingEnabled)
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.correlationTab), _translate("statsWidget", "Correlation"))
-        self.regrCoefsIntervalsBox.setTitle(_translate("statsWidget", "Coefficients (A_hat)"))
+        self.tabWidget.setTabText(
+            self.tabWidget.indexOf(self.correlationTab),
+            _translate("statsWidget", "Correlation"),
+        )
+        self.regrCoefsIntervalsBox.setTitle(
+            _translate("statsWidget", "Coefficients (A_hat)")
+        )
         __sortingEnabled = self.regrCoefsIntervals.isSortingEnabled()
         self.regrCoefsIntervals.setSortingEnabled(False)
         item = self.regrCoefsIntervals.item(0, 0)
@@ -1177,7 +1525,9 @@ class Ui_statsWidget(object):
         item = self.regrCoefsIntervals.item(2, 2)
         item.setText(_translate("statsWidget", "1"))
         self.regrCoefsIntervals.setSortingEnabled(__sortingEnabled)
-        self.regrCoefsSignifBox.setTitle(_translate("statsWidget", "Coefficients Significance (A_hat)"))
+        self.regrCoefsSignifBox.setTitle(
+            _translate("statsWidget", "Coefficients Significance (A_hat)")
+        )
         item = self.regrCoefsSignif.horizontalHeaderItem(0)
         item.setText(_translate("statsWidget", "1"))
         __sortingEnabled = self.regrCoefsSignif.isSortingEnabled()
@@ -1189,7 +1539,9 @@ class Ui_statsWidget(object):
         item = self.regrCoefsSignif.item(0, 2)
         item.setText(_translate("statsWidget", "255"))
         self.regrCoefsSignif.setSortingEnabled(__sortingEnabled)
-        self.regrStdCoefsBox.setTitle(_translate("statsWidget", "Standartized Coefficients (A_hat)"))
+        self.regrStdCoefsBox.setTitle(
+            _translate("statsWidget", "Standartized Coefficients (A_hat)")
+        )
         item = self.regrStdCoefs.verticalHeaderItem(0)
         item.setText(_translate("statsWidget", "0"))
         item = self.regrStdCoefs.horizontalHeaderItem(0)
@@ -1205,7 +1557,9 @@ class Ui_statsWidget(object):
         item = self.regrStdCoefs.item(0, 2)
         item.setText(_translate("statsWidget", "255"))
         self.regrStdCoefs.setSortingEnabled(__sortingEnabled)
-        self.determinationCoefBox.setTitle(_translate("statsWidget", "Determination Coefficient (R^2)"))
+        self.determinationCoefBox.setTitle(
+            _translate("statsWidget", "Determination Coefficient (R^2)")
+        )
         item = self.determinationCoef.verticalHeaderItem(0)
         item.setText(_translate("statsWidget", "0"))
         item = self.determinationCoef.horizontalHeaderItem(0)
@@ -1225,7 +1579,9 @@ class Ui_statsWidget(object):
         item = self.modelSignif.item(0, 0)
         item.setText(_translate("statsWidget", "255"))
         self.modelSignif.setSortingEnabled(__sortingEnabled)
-        self.stdIntervalBox.setTitle(_translate("statsWidget", "Standard Error Of The Estimate"))
+        self.stdIntervalBox.setTitle(
+            _translate("statsWidget", "Standard Error Of The Estimate")
+        )
         item = self.stdInterval.verticalHeaderItem(0)
         item.setText(_translate("statsWidget", "a0"))
         item = self.stdInterval.horizontalHeaderItem(0)
@@ -1243,7 +1599,9 @@ class Ui_statsWidget(object):
         item = self.stdInterval.item(0, 2)
         item.setText(_translate("statsWidget", "3"))
         self.stdInterval.setSortingEnabled(__sortingEnabled)
-        self.modelIntervalBox.setTitle(_translate("statsWidget", "Model Value Intervals"))
+        self.modelIntervalBox.setTitle(
+            _translate("statsWidget", "Model Value Intervals")
+        )
         item = self.modelInterval.verticalHeaderItem(0)
         item.setText(_translate("statsWidget", "0"))
         item = self.modelInterval.verticalHeaderItem(1)
@@ -1331,4 +1689,7 @@ class Ui_statsWidget(object):
         item = self.modelInterval.item(9, 2)
         item.setText(_translate("statsWidget", "2"))
         self.modelInterval.setSortingEnabled(__sortingEnabled)
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.regressionTab), _translate("statsWidget", "Regression"))
+        self.tabWidget.setTabText(
+            self.tabWidget.indexOf(self.regressionTab),
+            _translate("statsWidget", "Regression"),
+        )
