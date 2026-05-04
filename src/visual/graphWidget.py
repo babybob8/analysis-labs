@@ -226,10 +226,13 @@ class GraphWidget(QWidget):
     def _build_correlation_field(self, data: Data) -> QWidget:
         cols = data.cols
         model = data.regression_model
+        dep = data.dependent
 
-        x = np.array(cols[0])
-        y = np.array(cols[1])
-        z = np.array(cols[2])
+        pred_indices = [i for i in range(len(cols)) if i != dep]
+
+        x = np.array(cols[pred_indices[0]])
+        y = np.array(cols[pred_indices[1]])
+        z = np.array(cols[dep])
 
         x_mn, x_mx = x.min(), x.max()
         y_mn, y_mx = y.min(), y.max()
@@ -256,10 +259,14 @@ class GraphWidget(QWidget):
                 )
             )
 
+        x_label = f"X{pred_indices[0] + 1}"
+        y_label = f"X{pred_indices[1] + 1}"
+        z_label = f"X{dep + 1}"
+
         for label_pos, text in [
-            ([1.25, 0, 0], "X1"),
-            ([0, 1.25, 0], "X2"),
-            ([0, 0, 1.25], "Y"),
+            ([1.25, 0, 0], x_label),
+            ([0, 1.25, 0], y_label),
+            ([0, 0, 1.25], z_label),
         ]:
             view.addItem(
                 gl.GLTextItem(
@@ -276,18 +283,25 @@ class GraphWidget(QWidget):
             )
         )
 
-        a0, a1, a2 = model.A_hat[0], model.A_hat[1], model.A_hat[2]
+        a0 = model.A_hat[0]
+        a1 = model.A_hat[1]
+        a2 = model.A_hat[2]
 
         grid_n = 20
-        xx, yy = np.meshgrid(
-            np.linspace(x_mn, x_mx, grid_n), np.linspace(y_mn, y_mx, grid_n)
-        )
+        x_grid = np.linspace(x_mn, x_mx, grid_n)
+        y_grid = np.linspace(y_mn, y_mx, grid_n)
+        xx, yy = np.meshgrid(x_grid, y_grid)
+
         zz = a0 + a1 * xx + a2 * yy
 
+        x_grid_n = norm(x_grid, x_mn, x_mx)
+        y_grid_n = norm(y_grid, y_mn, y_mx)
+        zz_n = norm(zz, z_mn, z_mx)
+
         plane = gl.GLSurfacePlotItem(
-            x=norm(xx, x_mn, x_mx)[0],
-            y=norm(yy, y_mn, y_mx)[:, 0],
-            z=norm(zz, z_mn, z_mx),
+            x=x_grid_n,
+            y=y_grid_n,
+            z=zz_n.T,
             shader="balloon",
             color=(0.2, 0.8, 0.4, 0.15),
             smooth=True,
@@ -298,7 +312,7 @@ class GraphWidget(QWidget):
         view.addItem(plane)
 
         return view
-
+    
     def _build_diagnostic_diagram(self, data: Data) -> QWidget:
         glw = pg.GraphicsLayoutWidget()
         plot = glw.addPlot()
