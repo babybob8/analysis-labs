@@ -16,7 +16,7 @@ from .loadDialog import LoadDialog
 from .graphWidget import GraphWidget, GraphType
 from .componentAnWidget import ComponentAnalysisWidget
 from .settingWidget import SettingDialog
-from ..data import Data
+from ..data import Data, DataMatrix
 
 
 class MainWindow(QMainWindow):
@@ -84,10 +84,18 @@ class MainWindow(QMainWindow):
         widget.exec()
 
     def set_alpha(self, alpha):
+        if self.data is None:
+            return
+
         self.alpha = alpha
+        self.set_data(Data(data_matrix=DataMatrix(cols=self.data.cols), alpha=self.alpha))
 
     def set_dependent(self, dependent):
+        if self.data is None:
+            return
+
         self.dependent = dependent
+        self.set_data(Data(data_matrix=DataMatrix(cols=self.data.cols), dependent=self.dependent))
 
     def on_actionCloseAll(self):
         self.ui.mdiArea.closeAllSubWindows()
