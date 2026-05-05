@@ -312,7 +312,7 @@ class GraphWidget(QWidget):
         view.addItem(plane)
 
         return view
-    
+
     def _build_diagnostic_diagram(self, data: Data) -> QWidget:
         glw = pg.GraphicsLayoutWidget()
         plot = glw.addPlot()

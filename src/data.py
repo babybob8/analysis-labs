@@ -73,11 +73,11 @@ class DataMatrix:
 class Data:
     def __init__(
         self,
-        fpath: str | None = None,
         /,
+        fpath: str | None = None,
+        data_matrix: DataMatrix | None = None,
         alpha: float = 0.05,
         dependent: int | None = None,
-        data_matrix: DataMatrix | None = None,
     ) -> None:
         if data_matrix and not fpath:
             self._data_matrix = data_matrix

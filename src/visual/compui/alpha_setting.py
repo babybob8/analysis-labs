@@ -19,21 +19,14 @@ class Ui_alphaDialog(object):
         self.gridLayout.setObjectName("gridLayout")
         self.buttonBox = QtWidgets.QDialogButtonBox(parent=alphaDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Orientation.Horizontal)
-        self.buttonBox.setStandardButtons(
-            QtWidgets.QDialogButtonBox.StandardButton.Cancel
-            | QtWidgets.QDialogButtonBox.StandardButton.Ok
-        )
+        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.StandardButton.Cancel|QtWidgets.QDialogButtonBox.StandardButton.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.gridLayout.addWidget(self.buttonBox, 2, 1, 1, 1)
         self.doubleSpinBox = QtWidgets.QDoubleSpinBox(parent=alphaDialog)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.doubleSpinBox.sizePolicy().hasHeightForWidth()
-        )
+        sizePolicy.setHeightForWidth(self.doubleSpinBox.sizePolicy().hasHeightForWidth())
         self.doubleSpinBox.setSizePolicy(sizePolicy)
         self.doubleSpinBox.setDecimals(4)
         self.doubleSpinBox.setMinimum(0.001)
@@ -43,8 +36,8 @@ class Ui_alphaDialog(object):
         self.gridLayout.addWidget(self.doubleSpinBox, 0, 1, 1, 1)
 
         self.retranslateUi(alphaDialog)
-        self.buttonBox.accepted.connect(alphaDialog.accept)  # type: ignore
-        self.buttonBox.rejected.connect(alphaDialog.reject)  # type: ignore
+        self.buttonBox.accepted.connect(alphaDialog.accept) # type: ignore
+        self.buttonBox.rejected.connect(alphaDialog.reject) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(alphaDialog)
 
     def retranslateUi(self, alphaDialog):

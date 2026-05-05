@@ -67,6 +67,8 @@
     </property>
     <addaction name="actionAlpha"/>
     <addaction name="actionDependent"/>
+    <addaction name="separator"/>
+    <addaction name="actionComponent"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuVisualization"/>
@@ -126,6 +128,11 @@
   <action name="actionDependent">
    <property name="text">
     <string>Dependent</string>
+   </property>
+  </action>
+  <action name="actionComponent">
+   <property name="text">
+    <string>Component Analysis</string>
    </property>
   </action>
  </widget>

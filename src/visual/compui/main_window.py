@@ -14,11 +14,7 @@ class Ui_mainWindow(object):
         mainWindow.setObjectName("mainWindow")
         mainWindow.resize(800, 600)
         icon = QtGui.QIcon()
-        icon.addPixmap(
-            QtGui.QPixmap("./dotui\\../resources/icon.jpg"),
-            QtGui.QIcon.Mode.Normal,
-            QtGui.QIcon.State.Off,
-        )
+        icon.addPixmap(QtGui.QPixmap("./dotui\\../resources/icon.jpg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         mainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(parent=mainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -62,6 +58,8 @@ class Ui_mainWindow(object):
         self.actionAlpha.setObjectName("actionAlpha")
         self.actionDependent = QtGui.QAction(parent=mainWindow)
         self.actionDependent.setObjectName("actionDependent")
+        self.actionComponent = QtGui.QAction(parent=mainWindow)
+        self.actionComponent.setObjectName("actionComponent")
         self.menuFile.addAction(self.actionLoad)
         self.menuVisualization.addSeparator()
         self.menuVisualization.addAction(self.actionStats)
@@ -77,6 +75,8 @@ class Ui_mainWindow(object):
         self.menuWindows.addSeparator()
         self.menuOptions.addAction(self.actionAlpha)
         self.menuOptions.addAction(self.actionDependent)
+        self.menuOptions.addSeparator()
+        self.menuOptions.addAction(self.actionComponent)
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuVisualization.menuAction())
         self.menubar.addAction(self.menuWindows.menuAction())
@@ -87,27 +87,20 @@ class Ui_mainWindow(object):
 
     def retranslateUi(self, mainWindow):
         _translate = QtCore.QCoreApplication.translate
-        mainWindow.setWindowTitle(
-            _translate("mainWindow", "Mossad Spyware Toolkit (MST)")
-        )
+        mainWindow.setWindowTitle(_translate("mainWindow", "Mossad Spyware Toolkit (MST)"))
         self.menuFile.setTitle(_translate("mainWindow", "File"))
         self.menuVisualization.setTitle(_translate("mainWindow", "Visual"))
         self.menuWindows.setTitle(_translate("mainWindow", "Windows"))
         self.menuOptions.setTitle(_translate("mainWindow", "Options"))
         self.actionLoad.setText(_translate("mainWindow", "Load"))
         self.actionScatter_plot.setText(_translate("mainWindow", "Scatter plot"))
-        self.actionParallel_coordinates.setText(
-            _translate("mainWindow", "Parallel coordinates")
-        )
+        self.actionParallel_coordinates.setText(_translate("mainWindow", "Parallel coordinates"))
         self.actionHeatmap.setText(_translate("mainWindow", "Heatmap"))
         self.actionBubble_chart.setText(_translate("mainWindow", "Bubble chart"))
         self.actionCloseAll.setText(_translate("mainWindow", "Close All"))
         self.actionStats.setText(_translate("mainWindow", "Stats"))
-        self.actionCorrelation_field.setText(
-            _translate("mainWindow", "Correlation field")
-        )
-        self.actionDiagnostic_diagram.setText(
-            _translate("mainWindow", "Diagnostic diagram")
-        )
+        self.actionCorrelation_field.setText(_translate("mainWindow", "Correlation field"))
+        self.actionDiagnostic_diagram.setText(_translate("mainWindow", "Diagnostic diagram"))
         self.actionAlpha.setText(_translate("mainWindow", "Alpha"))
         self.actionDependent.setText(_translate("mainWindow", "Dependent"))
+        self.actionComponent.setText(_translate("mainWindow", "Component Analysis"))

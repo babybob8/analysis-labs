@@ -14,6 +14,7 @@ from .compui.main_window import Ui_mainWindow
 from .statsWidget import StatsWidget
 from .loadDialog import LoadDialog
 from .graphWidget import GraphWidget, GraphType
+from .componentAnWidget import ComponentAnalysisWidget
 from .settingWidget import SettingDialog
 from ..data import Data
 
@@ -30,7 +31,7 @@ class MainWindow(QMainWindow):
         self.ui.actionLoad.triggered.connect(self.on_actionLoad)
         self.ui.actionAlpha.triggered.connect(self.on_actionAlpha)
         self.ui.actionDependent.triggered.connect(self.on_actionDependent)
-
+        self.ui.actionComponent.triggered.connect(self.on_actionComponent)
         self.ui.actionStats.triggered.connect(self.open_stats)
 
         self.ui.actionScatter_plot.triggered.connect(
@@ -73,6 +74,14 @@ class MainWindow(QMainWindow):
         dialog = SettingDialog("dependent", dependent=self.dependent)
         dialog.dependent_submitted.connect(self.set_dependent)
         dialog.exec()
+
+    def on_actionComponent(self):
+        if self.data is None:
+            return
+        
+        widget = ComponentAnalysisWidget(self.data)
+        widget.filtered_submitted.connect(self.set_data)
+        widget.exec()
 
     def set_alpha(self, alpha):
         self.alpha = alpha
