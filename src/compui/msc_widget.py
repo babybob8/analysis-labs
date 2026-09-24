@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file './dotui/msc_widget.ui'
+# Form implementation generated from reading ui file './src/dotui/msc_widget.ui'
 #
 # Created by: PyQt6 UI code generator 6.11.0
 #

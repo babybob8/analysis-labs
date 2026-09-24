@@ -1,7 +1,7 @@
 from itertools import combinations
 
 from PyQt6.QtWidgets import QWidget
-from .compui.stats_widget import Ui_statsWidget
+from ..compui.stats_widget import Ui_statsWidget
 from .table_utils import fill_table
 from ..data import Data
 
@@ -24,6 +24,42 @@ class StatsWidget(QWidget):
         fill_table(self.ui.corrMatrix, self.data.correlation_matrix)
         fill_table(self.ui.corrSignifMatrix, self.data.correlation_significance_matrix)
 
+    # def _fill_corr(self):
+    #     if self.data.dimensions > 3:
+    #         return
+
+    #     fill_table(self.ui.covarMatrix, self.data.covariance_matrix)
+
+    #     part_corr_vectors = [
+    #         [interval[0], estimate, interval[1]]
+    #         for interval, estimate in zip(
+    #             self.data.partial_correlation_significance_intervals_vector,
+    #             self.data.partial_correlation_vector,
+    #         )
+    #     ]
+    #     part_corr_vectors_header = ["Lower", "Est.", "Upper"]
+    #     fill_table(self.ui.partCorrMatrix, part_corr_vectors, part_corr_vectors_header)
+
+    #     part_corr_header = [
+    #         f"{a}x{b}" for a, b in combinations(range(self.data.dimensions), 2)
+    #     ]
+    #     fill_table(
+    #         self.ui.partCorrSignifVector,
+    #         self.data.partial_correlation_significance_vector,
+    #         part_corr_header,
+    #     )
+
+    #     mult_corr_header = [
+    #         f"{d}x({', '.join(str(i) for i in range(self.data.dimensions) if i != d)})"
+    #         for d in range(self.data.dimensions)
+    #     ]
+
+    #     fill_table(
+    #         self.ui.multCorrVector,
+    #         self.data.mult_correlation_vector,
+    #         header=mult_corr_header,
+    #     )
+
     def _fill_corr(self):
         fill_table(self.ui.covarMatrix, self.data.covariance_matrix)
 
@@ -35,24 +71,27 @@ class StatsWidget(QWidget):
             )
         ]
         part_corr_vectors_header = ["Lower", "Est.", "Upper"]
-        fill_table(self.ui.partCorrMatrix, part_corr_vectors, part_corr_vectors_header)
-
         part_corr_header = [
-            f"{a}x{b}"
-            for a, b in combinations(
-                range(self.data.dimensions), self.data.dimensions - 1
-            )
+            f"{a}x{b}" for a, b in list(combinations(range(self.data.dimensions), 2))
         ]
+
+        fill_table(
+            self.ui.partCorrMatrix,
+            part_corr_vectors,
+            part_corr_vectors_header,
+            part_corr_header,
+        )
+
         fill_table(
             self.ui.partCorrSignifVector,
             self.data.partial_correlation_significance_vector,
             part_corr_header,
         )
 
-        mult_corr_header = ["" for _ in range(self.data.dimensions)]
-        for i, j in combinations(range(self.data.dimensions), self.data.dimensions - 1):
-            d = self.data.dimensions - i - j
-            mult_corr_header[d] = f"{d}x({i}, {j})"
+        mult_corr_header = [
+            f"{d}x({', '.join(str(i) for i in range(self.data.dimensions) if i != d)})"
+            for d in range(self.data.dimensions)
+        ]
 
         fill_table(
             self.ui.multCorrVector,

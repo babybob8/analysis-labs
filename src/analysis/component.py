@@ -14,7 +14,7 @@ def _dc(data: mat_t, length: int) -> np.ndarray:
     return (1 / length) * (X @ X.T)
 
 
-def _ewv(data: mat_t, mean: vec_t, length: int) -> tuple[vec_t, np.ndarray]:
+def _evv(data: mat_t, mean: vec_t, length: int) -> tuple[vec_t, np.ndarray]:
     centered = _center(data, mean)
     dc = _dc(centered, length)
     eigenvalues, eigenvectors = np.linalg.eigh(dc)
@@ -28,11 +28,16 @@ def _to_ortogonal(data: mat_t, eigenvectors: np.ndarray) -> mat_t:
     return (X @ eigenvectors).tolist()
 
 
-def _from_ortogonal(ortogonal: mat_t, eigenvectors: np.ndarray, keep: int) -> mat_t:
+def _filter(ortogonal: mat_t, keep: int) -> np.ndarray:
     X = np.array(ortogonal)
     filtered = X[:, :keep]
-    eigenvectors_reduced = eigenvectors[:, :keep]
-    return (filtered @ eigenvectors_reduced.T).tolist()
+    return filtered
+
+
+def _from_ortogonal(
+    filtered_ortogonal: np.ndarray, filtered_eigenvectors: np.ndarray
+) -> mat_t:
+    return (filtered_ortogonal @ filtered_eigenvectors.T).tolist()
 
 
 def forward(
@@ -44,7 +49,7 @@ def forward(
     if length is None:
         length = len(cols[0])
 
-    eigenvalues, eigenvectors = _ewv(cols, mean, length)
+    eigenvalues, eigenvectors = _evv(cols, mean, length)
     ortogonal = _to_ortogonal(cols, eigenvectors)
     return eigenvalues, eigenvectors, ortogonal
 
@@ -54,5 +59,7 @@ def backward(
 ) -> mat_t:
     if keep is None:
         keep = len(ortogonal)
-
-    return _from_ortogonal(ortogonal, eigenvectors, keep)
+        eigenvectors
+    filtered_ortogonal = _filter(ortogonal, keep)
+    filtered_eigenvectors = eigenvectors[:, :keep]
+    return _from_ortogonal(filtered_ortogonal, filtered_eigenvectors)

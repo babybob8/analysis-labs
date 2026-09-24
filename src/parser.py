@@ -9,9 +9,10 @@ def parse_vectors_file(path: str) -> list[list[float]]:
 
             try:
                 vector = [float(x) for x in stripped.split()]
-            except ValueError as e:
-                raise ValueError(f"Parsing error at: {line_number}: {stripped}") from e
+                vectors.append(vector)
 
-            vectors.append(vector)
+            except ValueError:
+                print(f"Parsing error at: {line_number}: {stripped}")
+                # raise ValueError() from e
 
     return vectors

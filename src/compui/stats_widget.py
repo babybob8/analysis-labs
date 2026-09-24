@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file './dotui/stats_widget.ui'
+# Form implementation generated from reading ui file './src/dotui/stats_widget.ui'
 #
 # Created by: PyQt6 UI code generator 6.11.0
 #
@@ -32,7 +32,7 @@ class Ui_statsWidget(object):
         self.initialScrollArea.setWidgetResizable(True)
         self.initialScrollArea.setObjectName("initialScrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 368, 588))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 199, 588))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -427,7 +427,7 @@ class Ui_statsWidget(object):
         self.partCorrMatrix.setItem(2, 2, item)
         self.partCorrMatrix.horizontalHeader().setVisible(True)
         self.partCorrMatrix.horizontalHeader().setStretchLastSection(True)
-        self.partCorrMatrix.verticalHeader().setVisible(False)
+        self.partCorrMatrix.verticalHeader().setVisible(True)
         self.verticalLayout_24.addWidget(self.partCorrMatrix)
         self.verticalLayout.addWidget(self.partCorrMatrixBox)
         self.partCorrSignifVectorBox = QtWidgets.QGroupBox(parent=self.scrollAreaWidgetContents_3)
@@ -534,7 +534,7 @@ class Ui_statsWidget(object):
         self.regressionScrollArea.setWidgetResizable(True)
         self.regressionScrollArea.setObjectName("regressionScrollArea")
         self.scrollAreaWidgetContents_4 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, -423, 368, 1024))
+        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 368, 1024))
         self.scrollAreaWidgetContents_4.setObjectName("scrollAreaWidgetContents_4")
         self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_13.setObjectName("verticalLayout_13")
@@ -919,7 +919,7 @@ class Ui_statsWidget(object):
         self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
 
         self.retranslateUi(statsWidget)
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(statsWidget)
 
     def retranslateUi(self, statsWidget):

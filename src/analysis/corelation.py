@@ -19,10 +19,55 @@ def _detk(matrix: list[list[float]], k: int) -> float:
     return np.linalg.det(new)
 
 
-def partial_correlation(i: int, j: int, d: int, r: list[list[float]]) -> float:
-    return (r[i][j] - (r[i][d] * r[j][d])) / (
-        sqrt((1 - (r[i][d] ** 2)) * (1 - (r[j][d] ** 2)))
-    )
+def partial_correlation(
+    i: int, j: int, cond: frozenset, r: list[list[float]], cache: dict | None = None
+) -> float:
+    if cache is None:
+        cache = {}
+
+    key = (frozenset((i, j)), cond)
+    if key in cache:
+        return cache[key]
+
+    if not cond:
+        value = r[i][j]
+    else:
+        d = next(iter(cond))
+        rest = cond - {d}
+
+        r_ij = partial_correlation(i, j, rest, r, cache)
+        r_id = partial_correlation(i, d, rest, r, cache)
+        r_jd = partial_correlation(j, d, rest, r, cache)
+
+        value = (r_ij - r_id * r_jd) / sqrt((1 - r_id**2) * (1 - r_jd**2))
+
+    cache[key] = value
+    return value
+
+
+def partial_correlation_matrix(
+    columns: list[list[float]],
+    /,
+    p: int | None = None,
+    cor_matrix: list[list[float]] | None = None,
+) -> list[float]:
+    if p is None:
+        p = len(columns)
+
+    if cor_matrix is None:
+        cor_matrix = correlation_matrix(columns)
+
+    cache = {}
+    full = frozenset(range(p))
+    result = [[0.0] * p for _ in range(p)]
+
+    for i, j in combinations(range(p), 2):
+        cond = full - {i, j}
+        value = partial_correlation(i, j, cond, cor_matrix, cache)
+        value = max(-1.0 + 1e-15, min(1.0 - 1e-15, value))
+        result[i][j] = result[j][i] = value
+
+    return result
 
 
 def partial_correlation_vector(
@@ -37,13 +82,10 @@ def partial_correlation_vector(
     if cor_matrix is None:
         cor_matrix = correlation_matrix(columns)
 
-    p_range = range(p)
-    p_cor_vector = [0.0 for _ in p_range]
-    for e, (i, j) in enumerate(combinations(p_range, p - 1)):
-        d = p - i - j
-        p_cor_vector[e] = partial_correlation(i, j, d, cor_matrix)
+    matrix = partial_correlation_matrix(columns, p, cor_matrix)
+    vector = [matrix[i][j] for i, j in list(combinations(range(p), 2))]
 
-    return p_cor_vector
+    return vector
 
 
 def partial_correlation_significance_vector(
@@ -65,7 +107,8 @@ def partial_correlation_significance_vector(
         raise ValueError("Not enough degrees of freedom")
 
     t_stat_vec: list[float] = [
-        (coef * sqrt(v)) / (sqrt(1 - (coef**2))) for coef in part_corr_vec
+        (coef * sqrt(v)) / sqrt(max(0.0, 1 - coef**2)) if abs(coef) < 1.0 else float('inf')
+        for coef in part_corr_vec
     ]
     q = t.ppf(1 - (alpha / 2), df=v)
 
@@ -131,13 +174,8 @@ def mult_correlation_vector(
     if cor_matrix is None:
         cor_matrix = correlation_matrix(columns)
 
-    p_range = range(p)
-    m_cor_vector = [0.0 for _ in p_range]
-    for i, j in combinations(p_range, p - 1):
-        d = p - i - j
-        m_cor_vector[d] = sqrt(1 - ((_det(cor_matrix)) / (_detk(cor_matrix, d))))
-
-    return m_cor_vector
+    det_r = _det(cor_matrix)
+    return [sqrt(max(0.0, 1 - det_r / _detk(cor_matrix, d))) for d in range(p)]
 
 
 def mult_correlation_significance_vector(

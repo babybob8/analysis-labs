@@ -6,7 +6,7 @@ import numpy as np
 import pyqtgraph.opengl as gl
 from math import sqrt, pi
 
-from .compui.grap_widget import Ui_graphWidget
+from ..compui.grap_widget import Ui_graphWidget
 from ..data import Data
 
 

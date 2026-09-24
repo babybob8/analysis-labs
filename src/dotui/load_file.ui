@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>271</width>
+    <height>184</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,20 +17,17 @@
    <iconset theme="QIcon::ThemeIcon::ListAdd"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="3" column="0" colspan="2">
-    <widget class="QPushButton" name="TODOButton_1">
-     <property name="text">
-      <string>TODO</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0">
-    <widget class="QLineEdit" name="pathLineEdit"/>
-   </item>
-   <item row="7" column="0" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
+   <item row="6" column="0" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
       <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="2">
+    <widget class="Line" name="line_2">
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
     </widget>
    </item>
@@ -41,13 +38,6 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="0" colspan="2">
-    <widget class="QPushButton" name="standartizeButton">
-     <property name="text">
-      <string>Standartize</string>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="0" colspan="2">
     <widget class="Line" name="line_1">
      <property name="orientation">
@@ -55,17 +45,27 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="0" colspan="2">
-    <widget class="QPushButton" name="TODOButton_2">
+   <item row="0" column="0">
+    <widget class="QLineEdit" name="pathLineEdit"/>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QCheckBox" name="standartizeButton">
+     <property name="text">
+      <string>Standartize</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QCheckBox" name="TODOButton_1">
      <property name="text">
       <string>TODO</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="0" colspan="2">
-    <widget class="Line" name="line_2">
-     <property name="orientation">
-      <enum>Qt::Orientation::Horizontal</enum>
+   <item row="4" column="0" colspan="2">
+    <widget class="QCheckBox" name="TODOButton_2">
+     <property name="text">
+      <string>TODO</string>
      </property>
     </widget>
    </item>

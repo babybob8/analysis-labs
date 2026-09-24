@@ -1,4 +1,4 @@
-from .compui.load_file import Ui_Dialog
+from ..compui.load_file import Ui_Dialog
 from ..data import Data, DataMatrix
 
 from PyQt6.QtWidgets import QDialog, QFileDialog
@@ -23,15 +23,6 @@ class LoadDialog(QDialog):
 
         self._alpha = alpha
         self._dependent = dependent
-        self._flags = []
-        self.ui.standartizeButton.clicked.connect(lambda: self.set_flag("standartize"))
-
-    def set_flag(self, flag: str = "undef"):
-        if flag == "undef":
-            return
-
-        elif flag == "standartize":
-            self._flags.append("standartize")
 
     def onButtonLoad(self):
         fpath, _ = QFileDialog.getOpenFileName(
@@ -46,7 +37,7 @@ class LoadDialog(QDialog):
 
     def preprocess_data(self, fpath):
         data = Data(fpath, alpha=self._alpha, dependent=self._dependent)
-        if "standartize" in self._flags:
+        if self.ui.standartizeButton.isChecked:
             data = Data(
                 alpha=self._alpha,
                 dependent=self._dependent,

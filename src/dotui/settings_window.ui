@@ -1,34 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>alphaDialog</class>
- <widget class="QDialog" name="alphaDialog">
+ <class>settingsDialog</class>
+ <widget class="QDialog" name="settingsDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>186</width>
-    <height>76</height>
+    <width>240</width>
+    <height>108</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Alpha</string>
+   <string>Settings</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="QIcon::ThemeIcon::MailMessageNew"/>
+   <iconset theme="QIcon::ThemeIcon::DocumentProperties"/>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="2" column="1">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Orientation::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QDoubleSpinBox" name="alpha_doubleSpinBox">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -52,6 +42,26 @@
      </property>
     </widget>
    </item>
+   <item>
+    <widget class="QSpinBox" name="dependent_spinBox">
+     <property name="suffix">
+      <string/>
+     </property>
+     <property name="prefix">
+      <string>Dependent: </string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources/>
@@ -59,7 +69,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>alphaDialog</receiver>
+   <receiver>settingsDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -75,7 +85,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>alphaDialog</receiver>
+   <receiver>settingsDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

@@ -38,6 +38,8 @@
      <string>File</string>
     </property>
     <addaction name="actionLoad"/>
+    <addaction name="separator"/>
+    <addaction name="actionSettings"/>
    </widget>
    <widget class="QMenu" name="menuVisualization">
     <property name="title">
@@ -63,17 +65,23 @@
    </widget>
    <widget class="QMenu" name="menuOptions">
     <property name="title">
-     <string>Options</string>
+     <string>Actions</string>
     </property>
-    <addaction name="actionAlpha"/>
-    <addaction name="actionDependent"/>
-    <addaction name="separator"/>
-    <addaction name="actionComponent"/>
+    <widget class="QMenu" name="menuComponent">
+     <property name="title">
+      <string>Component</string>
+     </property>
+     <addaction name="actionForward"/>
+     <addaction name="actionFilter"/>
+     <addaction name="actionBackward"/>
+     <addaction name="actionFull"/>
+    </widget>
+    <addaction name="menuComponent"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuVisualization"/>
-   <addaction name="menuWindows"/>
    <addaction name="menuOptions"/>
+   <addaction name="menuWindows"/>
   </widget>
   <action name="actionLoad">
    <property name="text">
@@ -130,9 +138,34 @@
     <string>Dependent</string>
    </property>
   </action>
-  <action name="actionComponent">
+  <action name="actionSettings">
    <property name="text">
-    <string>Component Analysis</string>
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="actionComponent_2">
+   <property name="text">
+    <string>Component</string>
+   </property>
+  </action>
+  <action name="actionForward">
+   <property name="text">
+    <string>Forward</string>
+   </property>
+  </action>
+  <action name="actionFilter">
+   <property name="text">
+    <string>Filter</string>
+   </property>
+  </action>
+  <action name="actionBackward">
+   <property name="text">
+    <string>Backward</string>
+   </property>
+  </action>
+  <action name="actionFull">
+   <property name="text">
+    <string>Full</string>
    </property>
   </action>
  </widget>

@@ -1,6 +1,5 @@
 from functools import cached_property
 from typing import Self
-from math import sqrt
 
 from .parser import parse_vectors_file
 
