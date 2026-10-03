@@ -20,6 +20,8 @@ class GraphType(IntEnum):
 
 
 class GraphWidget(QWidget):
+    WINDOW_SIZE = 700
+    
     def __init__(self, gtype: GraphType, data: Data):
         super().__init__()
         self.ui = Ui_graphWidget()
@@ -28,7 +30,7 @@ class GraphWidget(QWidget):
         layout = QVBoxLayout(self.ui.graph)
         widget = None
         layout.setContentsMargins(0, 0, 0, 0)
-
+        
         if gtype == GraphType.SCATTER:
             self.setWindowTitle("Scatter Matrix")
             widget = self._build_scatter_matrix(data)
@@ -237,7 +239,7 @@ class GraphWidget(QWidget):
         x_mn, x_mx = x.min(), x.max()
         y_mn, y_mx = y.min(), y.max()
         z_mn, z_mx = z.min(), z.max()
-
+        
         def norm(arr, mn, mx):
             return (arr - mn) / (mx - mn) if mx != mn else np.zeros_like(arr)
 
@@ -247,11 +249,19 @@ class GraphWidget(QWidget):
 
         view = gl.GLViewWidget()
         view.setCameraPosition(distance=3)
-
+        
+        x_axis_start, x_axis_end = [x_n.min() - 0.2, 0.5, 0.5], [x_n.max() + 0.2, 0.5, 0.5]
+        y_axis_start, y_axis_end = [0.5, y_n.min() - 0.2, 0.5], [0.5, y_n.max() + 0.2, 0.5] 
+        z_axis_start, z_axis_end = [0.5, 0.5, z_n.min() - 0.2], [0.5, 0.5, z_n.max() + 0.2] 
+        
+        x_axis_color = (1, 0.3, 0.3, 1)
+        y_axis_color = (0.3, 1, 0.3, 1)
+        z_axis_color = (0.5, 0.7, 1.0, 1)
+        
         for start, end, color in [
-            ([0, 0, 0], [1.2, 0, 0], (1, 0.3, 0.3, 1)),
-            ([0, 0, 0], [0, 1.2, 0], (0.3, 1, 0.3, 1)),
-            ([0, 0, 0], [0, 0, 1.2], (0.5, 0.7, 1.0, 1)),
+            (x_axis_start, x_axis_end, x_axis_color),
+            (y_axis_start, y_axis_end, y_axis_color),
+            (z_axis_start, z_axis_end, z_axis_color),
         ]:
             view.addItem(
                 gl.GLLinePlotItem(
@@ -259,14 +269,14 @@ class GraphWidget(QWidget):
                 )
             )
 
-        x_label = f"X{pred_indices[0] + 1}"
-        y_label = f"X{pred_indices[1] + 1}"
-        z_label = f"X{dep + 1}"
+        x_label_pos, x_label = x_axis_end, f"X{pred_indices[0] + 1}"
+        y_label_pos, y_label = y_axis_end, f"X{pred_indices[1] + 1}"
+        z_label_pos, z_label = z_axis_end, f"X{dep + 1}"
 
         for label_pos, text in [
-            ([1.25, 0, 0], x_label),
-            ([0, 1.25, 0], y_label),
-            ([0, 0, 1.25], z_label),
+            (x_label_pos, x_label),
+            (y_label_pos, y_label),
+            (z_label_pos, z_label),
         ]:
             view.addItem(
                 gl.GLTextItem(

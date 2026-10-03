@@ -105,7 +105,6 @@ class MainWindow(QMainWindow):
             self.data.cols, self.data.mean_vector, self.data.vector_length
         )
 
-        print(len(self.ortogonal))
         self.set_data(Data(data_matrix=DataMatrix(rows=self.ortogonal)))
 
     def on_actionFilter(self):
@@ -162,6 +161,7 @@ class MainWindow(QMainWindow):
         graph = GraphWidget(gtype, self.data)
         sub = QMdiSubWindow()
         sub.setWidget(graph)
+        sub.resize(600, 600)
         self.ui.mdiArea.addSubWindow(sub)
         sub.show()
         self.subwindows.append((sub, graph))

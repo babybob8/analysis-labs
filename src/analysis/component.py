@@ -24,8 +24,8 @@ def _evv(data: mat_t, mean: vec_t, length: int) -> tuple[vec_t, np.ndarray]:
 
 
 def _to_ortogonal(data: mat_t, eigenvectors: np.ndarray) -> mat_t:
-    X = np.array(data).T
-    return (X @ eigenvectors).tolist()
+    X = np.array(data)
+    return (X.T @ eigenvectors).tolist()
 
 
 def _filter(ortogonal: mat_t, keep: int) -> np.ndarray:
