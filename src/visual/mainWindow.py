@@ -17,6 +17,7 @@ from .graphWidget import GraphWidget, GraphType
 from .componentAnWidget import ComponentAnalysisWidget
 from .settings_window import SettingsDialog
 from ..data import Data, DataMatrix
+from ..filter import filter_3sigma
 from ..analysis.component import forward, _from_ortogonal, _filter
 
 
@@ -35,6 +36,7 @@ class MainWindow(QMainWindow):
         self.ui.actionBackward.triggered.connect(self.on_actionBackward)
         self.ui.actionFull.triggered.connect(self.on_actionFullComponent)
         self.ui.actionStats.triggered.connect(self.open_stats)
+        self.ui.action3_sigma.triggered.connect(self.on_action3sigma)
 
         self.ui.actionScatter_plot.triggered.connect(
             lambda: self.open_graph(GraphType.SCATTER)
@@ -78,7 +80,7 @@ class MainWindow(QMainWindow):
             return
 
         self.data = Data(
-            data_matrix=DataMatrix(cols=self.data.cols),
+            DataMatrix(cols=self.data.cols),
             alpha=alpha,
             dependent=dependent,
         )
@@ -87,7 +89,7 @@ class MainWindow(QMainWindow):
         filtered_components = _filter(self.data.rows, keep)
         print(filtered_components.shape)
         self.eigenvectors = self.eigenvectors[:, :keep]  # filtered
-        self.set_data(Data(data_matrix=DataMatrix(rows=filtered_components)))
+        self.set_data(Data(DataMatrix(rows=filtered_components)))
 
     def on_actionSettings(self):
         if self.data is None:
@@ -105,7 +107,7 @@ class MainWindow(QMainWindow):
             self.data.cols, self.data.mean_vector, self.data.vector_length
         )
 
-        self.set_data(Data(data_matrix=DataMatrix(rows=self.ortogonal)))
+        self.set_data(Data(DataMatrix(rows=self.ortogonal)))
 
     def on_actionFilter(self):
         if (
@@ -136,7 +138,7 @@ class MainWindow(QMainWindow):
             return
 
         back = _from_ortogonal(self.data.rows, self.eigenvectors)
-        self.set_data(Data(data_matrix=DataMatrix(rows=back)))
+        self.set_data(Data(DataMatrix(rows=back)))
 
     def on_actionFullComponent(self):
         if self.data is None:
@@ -146,6 +148,12 @@ class MainWindow(QMainWindow):
         widget.filtered_submitted.connect(self.set_data)
         widget.exec()
 
+    def on_action3sigma(self):
+        if self.data is None:
+            return
+
+        self.data = filter_3sigma(self.data)
+        
     def on_actionCloseAll(self):
         self.ui.mdiArea.closeAllSubWindows()
 

@@ -39,9 +39,9 @@ class LoadDialog(QDialog):
         data = Data(fpath, alpha=self._alpha, dependent=self._dependent)
         if self.ui.standartizeButton.isChecked:
             data = Data(
+                DataMatrix.standartize(data.cols),
                 alpha=self._alpha,
                 dependent=self._dependent,
-                data_matrix=DataMatrix.standartize(data.cols),
             )
 
         return data

@@ -54,7 +54,7 @@ class ComponentAnalysisWidget(QDialog):
     def submit_filtered(self):
         keep = self.ui.keepSpinBox.value()
         back = backward(self.ortogonal, self.eigenvectors, keep)
-        self.filtered_submitted.emit(Data(data_matrix=DataMatrix(rows=back)))
+        self.filtered_submitted.emit(Data(DataMatrix(rows=back)))
         self.accept()
 
     def submit_keep(self):
@@ -64,7 +64,7 @@ class ComponentAnalysisWidget(QDialog):
 
     def fill_scatter(self):
         graph = GraphWidget(
-            GraphType.SCATTER, Data(data_matrix=DataMatrix(rows=self.ortogonal))
+            GraphType.SCATTER, Data(DataMatrix(rows=self.ortogonal))
         )
 
         layout = QVBoxLayout(self.ui.scatterWidget)

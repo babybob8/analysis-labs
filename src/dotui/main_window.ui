@@ -76,7 +76,14 @@
      <addaction name="actionBackward"/>
      <addaction name="actionFull"/>
     </widget>
+    <widget class="QMenu" name="menuFilter">
+     <property name="title">
+      <string>Filter</string>
+     </property>
+     <addaction name="action3_sigma"/>
+    </widget>
     <addaction name="menuComponent"/>
+    <addaction name="menuFilter"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuVisualization"/>
@@ -166,6 +173,11 @@
   <action name="actionFull">
    <property name="text">
     <string>Full</string>
+   </property>
+  </action>
+  <action name="action3_sigma">
+   <property name="text">
+    <string>3 sigma</string>
    </property>
   </action>
  </widget>

@@ -72,28 +72,27 @@ class DataMatrix:
 class Data:
     def __init__(
         self,
+        src: str | DataMatrix | None,
         /,
-        fpath: str | None = None,
-        data_matrix: DataMatrix | None = None,
         alpha: float = 0.05,
         dependent: int | None = None,
     ) -> None:
-        if data_matrix and not fpath:
-            self._data_matrix = data_matrix
-
-        if fpath and not data_matrix:
-            self._data_matrix = DataMatrix(rows=parse_vectors_file(fpath))
-
-        if not fpath and not data_matrix:
-            raise ValueError("No data -> no Data")
-
+        if isinstance(src, str):
+            self._data_matrix = DataMatrix(rows=parse_vectors_file(src))
+        
+        elif isinstance(src, DataMatrix):
+            self._data_matrix = src
+        
+        else:
+            raise ValueError(f"Weird src: {type(src)}\n {src}")
+        
         if dependent is None:
             dependent = self.dimensions - 1
 
         self._regr_dependent = dependent
         self._alpha = alpha
 
-    @cached_property
+    @property
     def dimensions(self) -> int:
         if not self._data_matrix:
             raise RuntimeError("No data vectors came in.")
