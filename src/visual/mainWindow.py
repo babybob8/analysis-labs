@@ -181,6 +181,8 @@ class MainWindow(QMainWindow):
         logging.debug("Closed all subwindows")
 
     def on_actionLogs(self):
+        # TODO
+        return
         if (self.log_file_path is None) or (self.logs_dir is None):
             logging.error("Uninitialized params: self.log_file_path, self.logs_dir")
 
@@ -192,6 +194,8 @@ class MainWindow(QMainWindow):
         self.subwindows.append((sub, logs))
 
     def setup_logs(self):
+        # TODO
+        return
         self.logs_dir = Path("logs")
         self.logs_dir.mkdir(exist_ok=True)
 
