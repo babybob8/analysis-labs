@@ -1,3 +1,0 @@
-2026-11-01 13:59:39,548 [DEBUG] loadDialog.submit_data: Loaded data from: /home/plns/uni41/analysis-labs/data/MGF.DAT
-2026-11-01 14:00:40,745 [DEBUG] mainWindow.open_stats: Opened stats widget
-2026-11-01 14:01:08,085 [DEBUG] mainWindow.open_graph: Opened graph widget: SCATTER
