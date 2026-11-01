@@ -115,11 +115,7 @@ def fill_table(
         length = len(filler)
         _fill_wvector(table, filler, length, header)
 
-    elif isinstance(filler, float):
-        formated = _auto_format(filler)
-        _fill_wsingle(table, formated)
-
-    elif isinstance(filler, bool):
+    elif isinstance(filler, (float, bool)):
         formated = _auto_format(filler)
         _fill_wsingle(table, formated)
 
