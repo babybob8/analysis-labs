@@ -1,9 +1,11 @@
+import logging
 from itertools import combinations
 
 from PyQt6.QtWidgets import QWidget
+
 from ..compui.stats_widget import Ui_statsWidget
-from .table_utils import fill_table
 from ..data import Data
+from .table_utils import fill_table
 
 
 class StatsWidget(QWidget):

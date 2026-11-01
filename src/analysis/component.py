@@ -1,6 +1,5 @@
 import numpy as np
 
-
 vec_t = list[float]
 mat_t = list[vec_t]
 
@@ -35,7 +34,8 @@ def _filter(ortogonal: mat_t, keep: int) -> np.ndarray:
 
 
 def _from_ortogonal(
-    filtered_ortogonal: np.ndarray, filtered_eigenvectors: np.ndarray
+    filtered_ortogonal: np.ndarray | mat_t,
+    filtered_eigenvectors: np.ndarray,
 ) -> mat_t:
     return (filtered_ortogonal @ filtered_eigenvectors.T).tolist()
 
@@ -59,7 +59,7 @@ def backward(
 ) -> mat_t:
     if keep is None:
         keep = len(ortogonal)
-        eigenvectors
+        # eigenvectors
     filtered_ortogonal = _filter(ortogonal, keep)
     filtered_eigenvectors = eigenvectors[:, :keep]
     return _from_ortogonal(filtered_ortogonal, filtered_eigenvectors)

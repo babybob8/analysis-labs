@@ -1,3 +1,6 @@
+import logging
+
+
 def parse_vectors_file(path: str) -> list[list[float]]:
     vectors: list[list[float]] = []
 
@@ -12,7 +15,7 @@ def parse_vectors_file(path: str) -> list[list[float]]:
                 vectors.append(vector)
 
             except ValueError:
-                print(f"Parsing error at: {line_number}: {stripped}")
+                logging.error(f"Parsing error at: {line_number}: {stripped}")
                 # raise ValueError() from e
 
     return vectors

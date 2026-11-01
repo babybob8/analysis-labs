@@ -1,8 +1,13 @@
 from functools import cached_property
 from typing import Self
 
-from .parser import parse_vectors_file
-
+from .analysis.corelation import (
+    mult_correlation_significance_vector,
+    mult_correlation_vector,
+    partial_correlation_significance_intervals_vector,
+    partial_correlation_significance_vector,
+    partial_correlation_vector,
+)
 from .analysis.initial import (
     correlation_matrix,
     correlation_significance_matrix,
@@ -10,17 +15,8 @@ from .analysis.initial import (
     mean_vector,
     std_vector,
 )
-
-from .analysis.corelation import (
-    mult_correlation_vector,
-    mult_correlation_significance_vector,
-    partial_correlation_vector,
-    partial_correlation_significance_vector,
-    partial_correlation_significance_intervals_vector,
-)
-
 from .analysis.regression import RegressionModel, regression
-
+from .parser import parse_vectors_file
 from .preprocess import (
     standartize as _standartize,
 )
@@ -79,13 +75,13 @@ class Data:
     ) -> None:
         if isinstance(src, str):
             self._data_matrix = DataMatrix(rows=parse_vectors_file(src))
-        
+
         elif isinstance(src, DataMatrix):
             self._data_matrix = src
-        
+
         else:
             raise ValueError(f"Weird src: {type(src)}\n {src}")
-        
+
         if dependent is None:
             dependent = self.dimensions - 1
 
@@ -146,7 +142,7 @@ class Data:
         )
 
     @cached_property
-    def correlation_significance_matrix(self) -> list[list[float]]:
+    def correlation_significance_matrix(self) -> list[list[bool]]:
         return correlation_significance_matrix(
             self.cols,
             alpha=self.alpha,

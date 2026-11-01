@@ -1,8 +1,8 @@
 from itertools import combinations
-from math import sqrt, log, exp
-from scipy.stats import t, norm
-import numpy as np
+from math import exp, log, sqrt
 
+import numpy as np
+from scipy.stats import norm, t
 
 from .initial import correlation_matrix
 
@@ -107,7 +107,9 @@ def partial_correlation_significance_vector(
         raise ValueError("Not enough degrees of freedom")
 
     t_stat_vec: list[float] = [
-        (coef * sqrt(v)) / sqrt(max(0.0, 1 - coef**2)) if abs(coef) < 1.0 else float('inf')
+        (coef * sqrt(v)) / sqrt(max(0.0, 1 - coef**2))
+        if abs(coef) < 1.0
+        else float("inf")
         for coef in part_corr_vec
     ]
     q = t.ppf(1 - (alpha / 2), df=v)

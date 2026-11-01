@@ -1,5 +1,6 @@
-from statistics import mean, stdev
 from math import sqrt
+from statistics import mean, stdev
+
 from scipy.stats import t
 
 

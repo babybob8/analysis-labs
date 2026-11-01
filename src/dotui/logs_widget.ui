@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LogsWidget</class>
+ <widget class="QWidget" name="LogsWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Logs</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="4">
+    <widget class="QPushButton" name="deleteAllButton">
+     <property name="toolTip">
+      <string>Delete all logs</string>
+     </property>
+     <property name="text">
+      <string>Delete All</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="4">
+    <widget class="QPushButton" name="bottomButton">
+     <property name="toolTip">
+      <string>Scroll all the way to the bottom</string>
+     </property>
+     <property name="text">
+      <string>Bottom</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="4">
+    <widget class="QPushButton" name="reloadLogButton">
+     <property name="toolTip">
+      <string>Reload contents of log from disk</string>
+     </property>
+     <property name="text">
+      <string>Reload</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <widget class="QPushButton" name="copyLogButton">
+     <property name="toolTip">
+      <string>Copy the whole log into clipboard</string>
+     </property>
+     <property name="text">
+      <string>Copy</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="5">
+    <widget class="QScrollArea" name="logScrollArea">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>580</width>
+        <height>287</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QPlainTextEdit" name="logPlainTextEdit">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="QPushButton" name="deleteSelectedButton">
+     <property name="toolTip">
+      <string>Delete selected log</string>
+     </property>
+     <property name="text">
+      <string>Delete Selected</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="3">
+    <widget class="QComboBox" name="selectLogBox"/>
+   </item>
+   <item row="3" column="3">
+    <widget class="QPushButton" name="findButton">
+     <property name="text">
+      <string>Find</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="3">
+    <widget class="QLineEdit" name="searchLineEdit">
+     <property name="text">
+      <string>Search</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

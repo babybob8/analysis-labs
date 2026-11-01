@@ -1,10 +1,10 @@
 from enum import IntEnum, auto
+from math import pi, sqrt
 
-from PyQt6.QtWidgets import QWidget, QVBoxLayout
-import pyqtgraph as pg
 import numpy as np
+import pyqtgraph as pg
 import pyqtgraph.opengl as gl
-from math import sqrt, pi
+from PyQt6.QtWidgets import QVBoxLayout, QWidget
 
 from ..compui.grap_widget import Ui_graphWidget
 from ..data import Data
@@ -21,7 +21,7 @@ class GraphType(IntEnum):
 
 class GraphWidget(QWidget):
     WINDOW_SIZE = 700
-    
+
     def __init__(self, gtype: GraphType, data: Data):
         super().__init__()
         self.ui = Ui_graphWidget()
@@ -30,7 +30,7 @@ class GraphWidget(QWidget):
         layout = QVBoxLayout(self.ui.graph)
         widget = None
         layout.setContentsMargins(0, 0, 0, 0)
-        
+
         if gtype == GraphType.SCATTER:
             self.setWindowTitle("Scatter Matrix")
             widget = self._build_scatter_matrix(data)
@@ -239,7 +239,7 @@ class GraphWidget(QWidget):
         x_mn, x_mx = x.min(), x.max()
         y_mn, y_mx = y.min(), y.max()
         z_mn, z_mx = z.min(), z.max()
-        
+
         def norm(arr, mn, mx):
             return (arr - mn) / (mx - mn) if mx != mn else np.zeros_like(arr)
 
@@ -249,15 +249,24 @@ class GraphWidget(QWidget):
 
         view = gl.GLViewWidget()
         view.setCameraPosition(distance=3)
-        
-        x_axis_start, x_axis_end = [x_n.min() - 0.2, 0.5, 0.5], [x_n.max() + 0.2, 0.5, 0.5]
-        y_axis_start, y_axis_end = [0.5, y_n.min() - 0.2, 0.5], [0.5, y_n.max() + 0.2, 0.5] 
-        z_axis_start, z_axis_end = [0.5, 0.5, z_n.min() - 0.2], [0.5, 0.5, z_n.max() + 0.2] 
-        
+
+        x_axis_start, x_axis_end = (
+            [x_n.min() - 0.2, 0.5, 0.5],
+            [x_n.max() + 0.2, 0.5, 0.5],
+        )
+        y_axis_start, y_axis_end = (
+            [0.5, y_n.min() - 0.2, 0.5],
+            [0.5, y_n.max() + 0.2, 0.5],
+        )
+        z_axis_start, z_axis_end = (
+            [0.5, 0.5, z_n.min() - 0.2],
+            [0.5, 0.5, z_n.max() + 0.2],
+        )
+
         x_axis_color = (1, 0.3, 0.3, 1)
         y_axis_color = (0.3, 1, 0.3, 1)
         z_axis_color = (0.5, 0.7, 1.0, 1)
-        
+
         for start, end, color in [
             (x_axis_start, x_axis_end, x_axis_color),
             (y_axis_start, y_axis_end, y_axis_color),

@@ -1,0 +1,3358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MGFWidget</class>
+ <widget class="QWidget" name="MGFWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>448</width>
+    <height>466</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MGF</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="currentIndex">
+      <number>2</number>
+     </property>
+     <widget class="QWidget" name="firstStepTab">
+      <attribute name="title">
+       <string>First</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_10">
+       <item>
+        <widget class="QGroupBox" name="corrMatBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title">
+          <string>R matrix</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QTableWidget" name="corrMatTableWidget">
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+            </property>
+            <property name="supportedDragActions">
+             <set>Qt::DropAction::IgnoreAction</set>
+            </property>
+            <attribute name="horizontalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="horizontalHeaderStretchLastSection">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="verticalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <row>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </row>
+            <row>
+             <property name="text">
+              <string>1</string>
+             </property>
+            </row>
+            <row>
+             <property name="text">
+              <string>2</string>
+             </property>
+            </row>
+            <column>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>1</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>2</string>
+             </property>
+            </column>
+            <item row="0" column="0">
+             <property name="text">
+              <string>1</string>
+             </property>
+            </item>
+            <item row="0" column="1">
+             <property name="text">
+              <string>2</string>
+             </property>
+            </item>
+            <item row="0" column="2">
+             <property name="text">
+              <string>3</string>
+             </property>
+            </item>
+            <item row="1" column="0">
+             <property name="text">
+              <string>6</string>
+             </property>
+            </item>
+            <item row="1" column="1">
+             <property name="text">
+              <string>5</string>
+             </property>
+            </item>
+            <item row="1" column="2">
+             <property name="text">
+              <string>4</string>
+             </property>
+            </item>
+            <item row="2" column="0">
+             <property name="text">
+              <string>7</string>
+             </property>
+            </item>
+            <item row="2" column="1">
+             <property name="text">
+              <string>\8</string>
+             </property>
+            </item>
+            <item row="2" column="2">
+             <property name="text">
+              <string>8</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="secondStepTab">
+      <attribute name="title">
+       <string>Second</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QGroupBox" name="eigenValuesBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title">
+          <string>Eigen values</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QTableWidget" name="eigenValuesVector">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+            </property>
+            <property name="supportedDragActions">
+             <set>Qt::DropAction::IgnoreAction</set>
+            </property>
+            <attribute name="horizontalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="horizontalHeaderStretchLastSection">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="verticalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <row>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </row>
+            <column>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>1</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>2</string>
+             </property>
+            </column>
+            <item row="0" column="0">
+             <property name="text">
+              <string>1</string>
+             </property>
+            </item>
+            <item row="0" column="1">
+             <property name="text">
+              <string>2</string>
+             </property>
+            </item>
+            <item row="0" column="2">
+             <property name="text">
+              <string>3</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="eigenVectorsBox">
+         <property name="title">
+          <string>Eigen vectors</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QTableWidget" name="eigenVectorsTableWidget">
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+            </property>
+            <property name="supportedDragActions">
+             <set>Qt::DropAction::IgnoreAction</set>
+            </property>
+            <attribute name="horizontalHeaderVisible">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="horizontalHeaderStretchLastSection">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="verticalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <row>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </row>
+            <row>
+             <property name="text">
+              <string>1</string>
+             </property>
+            </row>
+            <row>
+             <property name="text">
+              <string>2</string>
+             </property>
+            </row>
+            <column>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>1</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>2</string>
+             </property>
+            </column>
+            <item row="0" column="0">
+             <property name="text">
+              <string>1</string>
+             </property>
+            </item>
+            <item row="0" column="1">
+             <property name="text">
+              <string>2</string>
+             </property>
+            </item>
+            <item row="0" column="2">
+             <property name="text">
+              <string>3</string>
+             </property>
+            </item>
+            <item row="1" column="0">
+             <property name="text">
+              <string>6</string>
+             </property>
+            </item>
+            <item row="1" column="1">
+             <property name="text">
+              <string>5</string>
+             </property>
+            </item>
+            <item row="1" column="2">
+             <property name="text">
+              <string>4</string>
+             </property>
+            </item>
+            <item row="2" column="0">
+             <property name="text">
+              <string>7</string>
+             </property>
+            </item>
+            <item row="2" column="1">
+             <property name="text">
+              <string>\8</string>
+             </property>
+            </item>
+            <item row="2" column="2">
+             <property name="text">
+              <string>8</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="thirdStepTab">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <attribute name="title">
+       <string>Third</string>
+      </attribute>
+      <widget class="QGroupBox" name="wBox">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>9</y>
+         <width>408</width>
+         <height>75</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="title">
+        <string>Factor count aproximation (w)</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QTableWidget" name="wValue">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>31</height>
+           </size>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+          </property>
+          <property name="editTriggers">
+           <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+          </property>
+          <property name="supportedDragActions">
+           <set>Qt::DropAction::IgnoreAction</set>
+          </property>
+          <attribute name="horizontalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <row>
+           <property name="text">
+            <string>0</string>
+           </property>
+          </row>
+          <column>
+           <property name="text">
+            <string>0</string>
+           </property>
+          </column>
+          <item row="0" column="0">
+           <property name="text">
+            <string>1</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="fourthStepTab">
+      <attribute name="title">
+       <string>Fourth</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_14">
+       <item>
+        <widget class="QScrollArea" name="fourthStepScrollArea">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>183</width>
+            <height>1242</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_20">
+           <item>
+            <widget class="QGroupBox" name="red1MatBox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Max correlation method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_13">
+              <item>
+               <widget class="QTableWidget" name="red1VecTableWidget">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                </property>
+                <property name="supportedDragActions">
+                 <set>Qt::DropAction::IgnoreAction</set>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Policy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QTableWidget" name="red1MatTableWidget">
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                </property>
+                <property name="supportedDragActions">
+                 <set>Qt::DropAction::IgnoreAction</set>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                </item>
+                <item row="1" column="0">
+                 <property name="text">
+                  <string>6</string>
+                 </property>
+                </item>
+                <item row="1" column="1">
+                 <property name="text">
+                  <string>5</string>
+                 </property>
+                </item>
+                <item row="1" column="2">
+                 <property name="text">
+                  <string>4</string>
+                 </property>
+                </item>
+                <item row="2" column="0">
+                 <property name="text">
+                  <string>7</string>
+                 </property>
+                </item>
+                <item row="2" column="1">
+                 <property name="text">
+                  <string>\8</string>
+                 </property>
+                </item>
+                <item row="2" column="2">
+                 <property name="text">
+                  <string>8</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="red2MatBox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Triad's method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_15">
+              <item>
+               <widget class="QTableWidget" name="red2VecTableWidget">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                </property>
+                <property name="supportedDragActions">
+                 <set>Qt::DropAction::IgnoreAction</set>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Policy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QTableWidget" name="red2MatTableWidget">
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                </property>
+                <property name="supportedDragActions">
+                 <set>Qt::DropAction::IgnoreAction</set>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                </item>
+                <item row="1" column="0">
+                 <property name="text">
+                  <string>6</string>
+                 </property>
+                </item>
+                <item row="1" column="1">
+                 <property name="text">
+                  <string>5</string>
+                 </property>
+                </item>
+                <item row="1" column="2">
+                 <property name="text">
+                  <string>4</string>
+                 </property>
+                </item>
+                <item row="2" column="0">
+                 <property name="text">
+                  <string>7</string>
+                 </property>
+                </item>
+                <item row="2" column="1">
+                 <property name="text">
+                  <string>\8</string>
+                 </property>
+                </item>
+                <item row="2" column="2">
+                 <property name="text">
+                  <string>8</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="red3MatBox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Mean method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_16">
+              <item>
+               <widget class="QTableWidget" name="red3VecTableWidget">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                </property>
+                <property name="supportedDragActions">
+                 <set>Qt::DropAction::IgnoreAction</set>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Policy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QTableWidget" name="red3MatTableWidget">
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                </property>
+                <property name="supportedDragActions">
+                 <set>Qt::DropAction::IgnoreAction</set>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                </item>
+                <item row="1" column="0">
+                 <property name="text">
+                  <string>6</string>
+                 </property>
+                </item>
+                <item row="1" column="1">
+                 <property name="text">
+                  <string>5</string>
+                 </property>
+                </item>
+                <item row="1" column="2">
+                 <property name="text">
+                  <string>4</string>
+                 </property>
+                </item>
+                <item row="2" column="0">
+                 <property name="text">
+                  <string>7</string>
+                 </property>
+                </item>
+                <item row="2" column="1">
+                 <property name="text">
+                  <string>\8</string>
+                 </property>
+                </item>
+                <item row="2" column="2">
+                 <property name="text">
+                  <string>8</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="red4MatBox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Centroid method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_19">
+              <item>
+               <widget class="QTableWidget" name="red4VecTableWidget">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                </property>
+                <property name="supportedDragActions">
+                 <set>Qt::DropAction::IgnoreAction</set>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_6">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Policy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QTableWidget" name="red4MatTableWidget">
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                </property>
+                <property name="supportedDragActions">
+                 <set>Qt::DropAction::IgnoreAction</set>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                </item>
+                <item row="1" column="0">
+                 <property name="text">
+                  <string>6</string>
+                 </property>
+                </item>
+                <item row="1" column="1">
+                 <property name="text">
+                  <string>5</string>
+                 </property>
+                </item>
+                <item row="1" column="2">
+                 <property name="text">
+                  <string>4</string>
+                 </property>
+                </item>
+                <item row="2" column="0">
+                 <property name="text">
+                  <string>7</string>
+                 </property>
+                </item>
+                <item row="2" column="1">
+                 <property name="text">
+                  <string>\8</string>
+                 </property>
+                </item>
+                <item row="2" column="2">
+                 <property name="text">
+                  <string>8</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="red5MatBox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Averoid method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_17">
+              <item>
+               <widget class="QTableWidget" name="red5VecTableWidget">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                </property>
+                <property name="supportedDragActions">
+                 <set>Qt::DropAction::IgnoreAction</set>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Policy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QTableWidget" name="red5MatTableWidget">
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                </property>
+                <property name="supportedDragActions">
+                 <set>Qt::DropAction::IgnoreAction</set>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                </item>
+                <item row="1" column="0">
+                 <property name="text">
+                  <string>6</string>
+                 </property>
+                </item>
+                <item row="1" column="1">
+                 <property name="text">
+                  <string>5</string>
+                 </property>
+                </item>
+                <item row="1" column="2">
+                 <property name="text">
+                  <string>4</string>
+                 </property>
+                </item>
+                <item row="2" column="0">
+                 <property name="text">
+                  <string>7</string>
+                 </property>
+                </item>
+                <item row="2" column="1">
+                 <property name="text">
+                  <string>\8</string>
+                 </property>
+                </item>
+                <item row="2" column="2">
+                 <property name="text">
+                  <string>8</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="red6MatBox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Componet method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_18">
+              <item>
+               <widget class="QTableWidget" name="red6VecTableWidget">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                </property>
+                <property name="supportedDragActions">
+                 <set>Qt::DropAction::IgnoreAction</set>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Policy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QTableWidget" name="red6MatTableWidget">
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                </property>
+                <property name="supportedDragActions">
+                 <set>Qt::DropAction::IgnoreAction</set>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                </item>
+                <item row="1" column="0">
+                 <property name="text">
+                  <string>6</string>
+                 </property>
+                </item>
+                <item row="1" column="1">
+                 <property name="text">
+                  <string>5</string>
+                 </property>
+                </item>
+                <item row="1" column="2">
+                 <property name="text">
+                  <string>4</string>
+                 </property>
+                </item>
+                <item row="2" column="0">
+                 <property name="text">
+                  <string>7</string>
+                 </property>
+                </item>
+                <item row="2" column="1">
+                 <property name="text">
+                  <string>\8</string>
+                 </property>
+                </item>
+                <item row="2" column="2">
+                 <property name="text">
+                  <string>8</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="fifthStepTab">
+      <attribute name="title">
+       <string>Fifth</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_28">
+       <item>
+        <widget class="QGroupBox" name="bestGroupBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title">
+          <string>Best aproxiamtion method</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_41">
+          <item>
+           <widget class="QTableWidget" name="maxCorrfTableWidget_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+            </property>
+            <property name="supportedDragActions">
+             <set>Qt::DropAction::IgnoreAction</set>
+            </property>
+            <attribute name="horizontalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="horizontalHeaderStretchLastSection">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="verticalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <row>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </row>
+            <column>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </column>
+            <item row="0" column="0">
+             <property name="text">
+              <string>Minecraft 26.3</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QScrollArea" name="fifthStepScrollArea">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="fifthStepScrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>183</width>
+            <height>1614</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_21">
+           <item>
+            <widget class="QGroupBox" name="maxCorrfABox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Max correlation method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_22">
+              <item>
+               <widget class="QGroupBox" name="maxCorrfBox">
+                <property name="title">
+                 <string>f</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_29">
+                 <item>
+                  <widget class="QTableWidget" name="maxCorrfTableWidget">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                   </property>
+                   <property name="supportedDragActions">
+                    <set>Qt::DropAction::IgnoreAction</set>
+                   </property>
+                   <attribute name="horizontalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <attribute name="horizontalHeaderStretchLastSection">
+                    <bool>true</bool>
+                   </attribute>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <row>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </column>
+                   <item row="0" column="0">
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="maxCorrAMatBox">
+                <property name="title">
+                 <string>A^hat</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_30">
+                 <item>
+                  <widget class="QTableWidget" name="maxCorrAMatTableWidget">
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                   </property>
+                   <property name="supportedDragActions">
+                    <set>Qt::DropAction::IgnoreAction</set>
+                   </property>
+                   <attribute name="horizontalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <attribute name="horizontalHeaderStretchLastSection">
+                    <bool>true</bool>
+                   </attribute>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <row>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </column>
+                   <item row="0" column="0">
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </item>
+                   <item row="0" column="1">
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </item>
+                   <item row="0" column="2">
+                    <property name="text">
+                     <string>3</string>
+                    </property>
+                   </item>
+                   <item row="1" column="0">
+                    <property name="text">
+                     <string>6</string>
+                    </property>
+                   </item>
+                   <item row="1" column="1">
+                    <property name="text">
+                     <string>5</string>
+                    </property>
+                   </item>
+                   <item row="1" column="2">
+                    <property name="text">
+                     <string>4</string>
+                    </property>
+                   </item>
+                   <item row="2" column="0">
+                    <property name="text">
+                     <string>7</string>
+                    </property>
+                   </item>
+                   <item row="2" column="1">
+                    <property name="text">
+                     <string>\8</string>
+                    </property>
+                   </item>
+                   <item row="2" column="2">
+                    <property name="text">
+                     <string>8</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="triadfABox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Triad's method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_23">
+              <item>
+               <widget class="QGroupBox" name="triadfBox">
+                <property name="title">
+                 <string>f</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_31">
+                 <item>
+                  <widget class="QTableWidget" name="triadfTableWidget">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                   </property>
+                   <property name="supportedDragActions">
+                    <set>Qt::DropAction::IgnoreAction</set>
+                   </property>
+                   <attribute name="horizontalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <attribute name="horizontalHeaderStretchLastSection">
+                    <bool>true</bool>
+                   </attribute>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <row>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </column>
+                   <item row="0" column="0">
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="triadAMatBox">
+                <property name="title">
+                 <string>A^hat</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_32">
+                 <item>
+                  <widget class="QTableWidget" name="triadAMatTableWidget">
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                   </property>
+                   <property name="supportedDragActions">
+                    <set>Qt::DropAction::IgnoreAction</set>
+                   </property>
+                   <attribute name="horizontalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <attribute name="horizontalHeaderStretchLastSection">
+                    <bool>true</bool>
+                   </attribute>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <row>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </column>
+                   <item row="0" column="0">
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </item>
+                   <item row="0" column="1">
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </item>
+                   <item row="0" column="2">
+                    <property name="text">
+                     <string>3</string>
+                    </property>
+                   </item>
+                   <item row="1" column="0">
+                    <property name="text">
+                     <string>6</string>
+                    </property>
+                   </item>
+                   <item row="1" column="1">
+                    <property name="text">
+                     <string>5</string>
+                    </property>
+                   </item>
+                   <item row="1" column="2">
+                    <property name="text">
+                     <string>4</string>
+                    </property>
+                   </item>
+                   <item row="2" column="0">
+                    <property name="text">
+                     <string>7</string>
+                    </property>
+                   </item>
+                   <item row="2" column="1">
+                    <property name="text">
+                     <string>\8</string>
+                    </property>
+                   </item>
+                   <item row="2" column="2">
+                    <property name="text">
+                     <string>8</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="meanfABox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Mean method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_24">
+              <item>
+               <widget class="QGroupBox" name="meanfBox">
+                <property name="title">
+                 <string>f</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_33">
+                 <item>
+                  <widget class="QTableWidget" name="meanfTableWidget">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                   </property>
+                   <property name="supportedDragActions">
+                    <set>Qt::DropAction::IgnoreAction</set>
+                   </property>
+                   <attribute name="horizontalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <attribute name="horizontalHeaderStretchLastSection">
+                    <bool>true</bool>
+                   </attribute>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <row>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </column>
+                   <item row="0" column="0">
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="meanAMatBox">
+                <property name="title">
+                 <string>A^hat</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_34">
+                 <item>
+                  <widget class="QTableWidget" name="meanAMatTableWidget">
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                   </property>
+                   <property name="supportedDragActions">
+                    <set>Qt::DropAction::IgnoreAction</set>
+                   </property>
+                   <attribute name="horizontalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <attribute name="horizontalHeaderStretchLastSection">
+                    <bool>true</bool>
+                   </attribute>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <row>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </column>
+                   <item row="0" column="0">
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </item>
+                   <item row="0" column="1">
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </item>
+                   <item row="0" column="2">
+                    <property name="text">
+                     <string>3</string>
+                    </property>
+                   </item>
+                   <item row="1" column="0">
+                    <property name="text">
+                     <string>6</string>
+                    </property>
+                   </item>
+                   <item row="1" column="1">
+                    <property name="text">
+                     <string>5</string>
+                    </property>
+                   </item>
+                   <item row="1" column="2">
+                    <property name="text">
+                     <string>4</string>
+                    </property>
+                   </item>
+                   <item row="2" column="0">
+                    <property name="text">
+                     <string>7</string>
+                    </property>
+                   </item>
+                   <item row="2" column="1">
+                    <property name="text">
+                     <string>\8</string>
+                    </property>
+                   </item>
+                   <item row="2" column="2">
+                    <property name="text">
+                     <string>8</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="centroidfABox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Centroid method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_27">
+              <item>
+               <widget class="QGroupBox" name="centroidfBox">
+                <property name="title">
+                 <string>f</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_39">
+                 <item>
+                  <widget class="QTableWidget" name="centroidfTableWidget">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                   </property>
+                   <property name="supportedDragActions">
+                    <set>Qt::DropAction::IgnoreAction</set>
+                   </property>
+                   <attribute name="horizontalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <attribute name="horizontalHeaderStretchLastSection">
+                    <bool>true</bool>
+                   </attribute>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <row>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </column>
+                   <item row="0" column="0">
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="centroidAMatBox">
+                <property name="title">
+                 <string>A^hat</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_40">
+                 <item>
+                  <widget class="QTableWidget" name="centroidAMatTableWidget">
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                   </property>
+                   <property name="supportedDragActions">
+                    <set>Qt::DropAction::IgnoreAction</set>
+                   </property>
+                   <attribute name="horizontalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <attribute name="horizontalHeaderStretchLastSection">
+                    <bool>true</bool>
+                   </attribute>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <row>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </column>
+                   <item row="0" column="0">
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </item>
+                   <item row="0" column="1">
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </item>
+                   <item row="0" column="2">
+                    <property name="text">
+                     <string>3</string>
+                    </property>
+                   </item>
+                   <item row="1" column="0">
+                    <property name="text">
+                     <string>6</string>
+                    </property>
+                   </item>
+                   <item row="1" column="1">
+                    <property name="text">
+                     <string>5</string>
+                    </property>
+                   </item>
+                   <item row="1" column="2">
+                    <property name="text">
+                     <string>4</string>
+                    </property>
+                   </item>
+                   <item row="2" column="0">
+                    <property name="text">
+                     <string>7</string>
+                    </property>
+                   </item>
+                   <item row="2" column="1">
+                    <property name="text">
+                     <string>\8</string>
+                    </property>
+                   </item>
+                   <item row="2" column="2">
+                    <property name="text">
+                     <string>8</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="averoidfABox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Averoid method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_26">
+              <item>
+               <widget class="QGroupBox" name="averoidfBox">
+                <property name="title">
+                 <string>f</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_37">
+                 <item>
+                  <widget class="QTableWidget" name="averoidfTableWidget">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                   </property>
+                   <property name="supportedDragActions">
+                    <set>Qt::DropAction::IgnoreAction</set>
+                   </property>
+                   <attribute name="horizontalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <attribute name="horizontalHeaderStretchLastSection">
+                    <bool>true</bool>
+                   </attribute>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <row>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </column>
+                   <item row="0" column="0">
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="averoidAMatBox">
+                <property name="title">
+                 <string>A^hat</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_38">
+                 <item>
+                  <widget class="QTableWidget" name="averoidAMatTableWidget">
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                   </property>
+                   <property name="supportedDragActions">
+                    <set>Qt::DropAction::IgnoreAction</set>
+                   </property>
+                   <attribute name="horizontalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <attribute name="horizontalHeaderStretchLastSection">
+                    <bool>true</bool>
+                   </attribute>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <row>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </column>
+                   <item row="0" column="0">
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </item>
+                   <item row="0" column="1">
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </item>
+                   <item row="0" column="2">
+                    <property name="text">
+                     <string>3</string>
+                    </property>
+                   </item>
+                   <item row="1" column="0">
+                    <property name="text">
+                     <string>6</string>
+                    </property>
+                   </item>
+                   <item row="1" column="1">
+                    <property name="text">
+                     <string>5</string>
+                    </property>
+                   </item>
+                   <item row="1" column="2">
+                    <property name="text">
+                     <string>4</string>
+                    </property>
+                   </item>
+                   <item row="2" column="0">
+                    <property name="text">
+                     <string>7</string>
+                    </property>
+                   </item>
+                   <item row="2" column="1">
+                    <property name="text">
+                     <string>\8</string>
+                    </property>
+                   </item>
+                   <item row="2" column="2">
+                    <property name="text">
+                     <string>8</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="componentfABox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Componet method</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_25">
+              <item>
+               <widget class="QGroupBox" name="componentfBox">
+                <property name="title">
+                 <string>f</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_35">
+                 <item>
+                  <widget class="QTableWidget" name="componentfTableWidget">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>31</height>
+                    </size>
+                   </property>
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                   </property>
+                   <property name="supportedDragActions">
+                    <set>Qt::DropAction::IgnoreAction</set>
+                   </property>
+                   <attribute name="horizontalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <attribute name="horizontalHeaderStretchLastSection">
+                    <bool>true</bool>
+                   </attribute>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <row>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </column>
+                   <item row="0" column="0">
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="componentAMatBox">
+                <property name="title">
+                 <string>A^hat</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_36">
+                 <item>
+                  <widget class="QTableWidget" name="componentAMatTableWidget">
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                   </property>
+                   <property name="supportedDragActions">
+                    <set>Qt::DropAction::IgnoreAction</set>
+                   </property>
+                   <attribute name="horizontalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <attribute name="horizontalHeaderStretchLastSection">
+                    <bool>true</bool>
+                   </attribute>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <row>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </column>
+                   <item row="0" column="0">
+                    <property name="text">
+                     <string>1</string>
+                    </property>
+                   </item>
+                   <item row="0" column="1">
+                    <property name="text">
+                     <string>2</string>
+                    </property>
+                   </item>
+                   <item row="0" column="2">
+                    <property name="text">
+                     <string>3</string>
+                    </property>
+                   </item>
+                   <item row="1" column="0">
+                    <property name="text">
+                     <string>6</string>
+                    </property>
+                   </item>
+                   <item row="1" column="1">
+                    <property name="text">
+                     <string>5</string>
+                    </property>
+                   </item>
+                   <item row="1" column="2">
+                    <property name="text">
+                     <string>4</string>
+                    </property>
+                   </item>
+                   <item row="2" column="0">
+                    <property name="text">
+                     <string>7</string>
+                    </property>
+                   </item>
+                   <item row="2" column="1">
+                    <property name="text">
+                     <string>\8</string>
+                    </property>
+                   </item>
+                   <item row="2" column="2">
+                    <property name="text">
+                     <string>8</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="iterationsTab">
+      <attribute name="title">
+       <string>Iterations</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0" colspan="2">
+        <widget class="QGroupBox" name="selectionGroupBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title">
+          <string>Iteration selection</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_42">
+          <item>
+           <widget class="QComboBox" name="selectionComboBox">
+            <item>
+             <property name="text">
+              <string>1</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QGroupBox" name="viewGroupBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title">
+          <string>Iteration view</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_47">
+          <item>
+           <widget class="QGroupBox" name="iter1AMatBox">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="title">
+             <string>hat(A)</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_43">
+             <item>
+              <widget class="QTableWidget" name="iter1AMatTableWidget">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="verticalScrollBarPolicy">
+                <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="sizeAdjustPolicy">
+                <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+               </property>
+               <property name="editTriggers">
+                <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+               </property>
+               <property name="supportedDragActions">
+                <set>Qt::DropAction::IgnoreAction</set>
+               </property>
+               <attribute name="horizontalHeaderVisible">
+                <bool>false</bool>
+               </attribute>
+               <attribute name="horizontalHeaderStretchLastSection">
+                <bool>true</bool>
+               </attribute>
+               <attribute name="verticalHeaderVisible">
+                <bool>false</bool>
+               </attribute>
+               <row>
+                <property name="text">
+                 <string>0</string>
+                </property>
+               </row>
+               <row>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </row>
+               <row>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </row>
+               <column>
+                <property name="text">
+                 <string>0</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </column>
+               <item row="0" column="0">
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+               <item row="0" column="1">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item row="0" column="2">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item row="1" column="0">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item row="1" column="1">
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+               <item row="1" column="2">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item row="2" column="0">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item row="2" column="1">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item row="2" column="2">
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="iter1RhMatBox">
+            <property name="title">
+             <string>R_h</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_45">
+             <item>
+              <widget class="QTableWidget" name="iter1RhMatTableWidget">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="verticalScrollBarPolicy">
+                <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="sizeAdjustPolicy">
+                <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+               </property>
+               <property name="editTriggers">
+                <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+               </property>
+               <property name="supportedDragActions">
+                <set>Qt::DropAction::IgnoreAction</set>
+               </property>
+               <attribute name="horizontalHeaderVisible">
+                <bool>false</bool>
+               </attribute>
+               <attribute name="horizontalHeaderStretchLastSection">
+                <bool>true</bool>
+               </attribute>
+               <attribute name="verticalHeaderVisible">
+                <bool>false</bool>
+               </attribute>
+               <row>
+                <property name="text">
+                 <string>0</string>
+                </property>
+               </row>
+               <row>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </row>
+               <row>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </row>
+               <column>
+                <property name="text">
+                 <string>0</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </column>
+               <item row="0" column="0">
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+               <item row="0" column="1">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item row="0" column="2">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item row="1" column="0">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item row="1" column="1">
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+               <item row="1" column="2">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item row="2" column="0">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item row="2" column="1">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item row="2" column="2">
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,8 @@
+2026-11-01 14:03:07,880 [DEBUG] mainWindow.open_stats: Opened stats widget
+2026-11-01 14:03:14,133 [DEBUG] mainWindow.open_stats: Opened stats widget
+2026-11-01 14:03:46,116 [DEBUG] loadDialog.submit_data: Loaded data from: /home/plns/uni41/analysis-labs/data/MGF.DAT
+2026-11-01 14:04:46,273 [DEBUG] mainWindow.open_graph: Opened graph widget: PARALLEL
+2026-11-01 14:04:48,402 [DEBUG] mainWindow.open_stats: Opened stats widget
+2026-11-01 14:04:57,214 [DEBUG] mainWindow.open_graph: Opened graph widget: SCATTER
+2026-11-01 14:05:06,686 [DEBUG] mainWindow.on_actionCloseAll: Closed all subwindows
+2026-11-01 14:05:55,260 [DEBUG] mainWindow.open_graph: Opened graph widget: SCATTER

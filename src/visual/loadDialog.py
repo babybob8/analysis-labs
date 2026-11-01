@@ -1,10 +1,11 @@
+import logging
+from pathlib import Path
+
+from PyQt6.QtCore import pyqtSignal
+from PyQt6.QtWidgets import QDialog, QFileDialog
+
 from ..compui.load_file import Ui_Dialog
 from ..data import Data, DataMatrix
-
-from PyQt6.QtWidgets import QDialog, QFileDialog
-from PyQt6.QtCore import pyqtSignal
-
-from pathlib import Path
 
 
 class LoadDialog(QDialog):
@@ -47,10 +48,11 @@ class LoadDialog(QDialog):
         return data
 
     def submit_data(self):
-        data = self.ui.pathLineEdit.text()
-        if data != None:
-            data = self.preprocess_data(data)
+        path = self.ui.pathLineEdit.text()
+        if path != None:
+            data = self.preprocess_data(path)
             self.data_submitted.emit(data)
+            logging.debug(f"Loaded data from: {path}")
             self.accept()
         else:
             self.reject()

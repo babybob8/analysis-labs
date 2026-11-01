@@ -1,9 +1,10 @@
-from numpy.linalg import inv
-from scipy.stats import f, t, chi2
 from dataclasses import dataclass
-import numpy as np
-from .initial import std_vector
 
+import numpy as np
+from numpy.linalg import inv
+from scipy.stats import chi2, f, t
+
+from .initial import std_vector
 
 vector_t = list[float]
 matrix_t = list[list[float]]

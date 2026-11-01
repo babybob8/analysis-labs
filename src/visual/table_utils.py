@@ -1,6 +1,5 @@
 from PyQt6.QtWidgets import QTableWidget, QTableWidgetItem
 
-
 matrix_t = list[list[float | int | bool | str]]
 vector_t = list[float | int | bool | str]
 
@@ -107,10 +106,10 @@ def fill_table(
     table: QTableWidget,
     filler: matrix_t | vector_t | float | int | bool | str,
     header: list[str] | None = None,
-    left_header: list[str] | None = None,
+    lefter: list[str] | None = None,
 ) -> None:
     if is_matrix(filler):
-        _fill_wmatrix(table, filler, header, left_header)
+        _fill_wmatrix(table, filler, header, lefter)
 
     elif is_vector(filler):
         length = len(filler)

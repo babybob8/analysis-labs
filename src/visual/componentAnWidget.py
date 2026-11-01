@@ -1,16 +1,14 @@
-from ..compui.msc_widget import Ui_mainWidget
-from ..data import Data, DataMatrix
-
-from PyQt6.QtWidgets import QDialog, QVBoxLayout
-from PyQt6.QtCore import pyqtSignal
-
 from pathlib import Path
 from typing import Any
 
-from ..analysis.component import forward, backward
+from PyQt6.QtCore import pyqtSignal
+from PyQt6.QtWidgets import QDialog, QVBoxLayout
 
-from .table_utils import fill_table
+from ..analysis.component import backward, forward
+from ..compui.msc_widget import Ui_mainWidget
+from ..data import Data, DataMatrix
 from .graphWidget import GraphType, GraphWidget
+from .table_utils import fill_table
 
 
 class ComponentAnalysisWidget(QDialog):
@@ -46,7 +44,11 @@ class ComponentAnalysisWidget(QDialog):
                 self.data.cols, self.data.mean_vector, self.data.vector_length
             )
         else:
-            self.eigenvalues, self.eigenvectors, self.ortogonal = eigenvalues, eigenvectors, ortogonal
+            self.eigenvalues, self.eigenvectors, self.ortogonal = (
+                eigenvalues,
+                eigenvectors,
+                ortogonal,
+            )
 
         self.fill_match_table()
         self.fill_scatter()
@@ -63,9 +65,7 @@ class ComponentAnalysisWidget(QDialog):
         self.accept()
 
     def fill_scatter(self):
-        graph = GraphWidget(
-            GraphType.SCATTER, Data(DataMatrix(rows=self.ortogonal))
-        )
+        graph = GraphWidget(GraphType.SCATTER, Data(DataMatrix(rows=self.ortogonal)))
 
         layout = QVBoxLayout(self.ui.scatterWidget)
         layout.setContentsMargins(0, 0, 0, 0)

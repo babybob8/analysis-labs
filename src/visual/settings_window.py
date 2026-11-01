@@ -1,7 +1,9 @@
-from ..compui.settings_window import Ui_settingsDialog
+import logging
 
-from PyQt6.QtWidgets import QDialog
 from PyQt6.QtCore import pyqtSignal
+from PyQt6.QtWidgets import QDialog
+
+from ..compui.settings_window import Ui_settingsDialog
 
 
 class SettingsDialog(QDialog):
@@ -15,9 +17,11 @@ class SettingsDialog(QDialog):
     ):
         super().__init__()
         if alpha is None:
+            logging.error("Alpha cant be None")
             raise ValueError("Alpha cant be None")
 
         if dependent is None:
+            logging.error("Dependent cant be None")
             raise ValueError("Dependent cant be None")
 
         self.ui = Ui_settingsDialog()
