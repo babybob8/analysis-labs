@@ -40,7 +40,8 @@ class FactorWidget(QWidget):
         self.fill_fifth_step(w_first_aprox)
 
         self.iterations: list[IterationRecord] = run_iterations(
-            self.best_rh, self.best_a, self.best_f, w_first_aprox
+            self.data.correlation_matrix, self.best_a, self.best_f, w_first_aprox
+            # self.best_rh, self.best_a, self.best_f, w_first_aprox
         )
 
         self.ui.selectionComboBox.addItems(
@@ -56,8 +57,8 @@ class FactorWidget(QWidget):
             self.data.correlation_matrix,
         )
 
-    def fill_second_step(self, eigenvalues, eigenvectors):
-        vec_header = [f"x{x}" for x in range(len(eigenvalues))]
+    def fill_second_step(self, eigenvalues, eigenvectors):        
+        vec_header = [f"e{x}" for x in range(len(eigenvalues))]
         fill_table(self.ui.eigenValuesVector, eigenvalues)
         fill_table(self.ui.eigenVectorsTableWidget, eigenvectors, header=vec_header)
 
