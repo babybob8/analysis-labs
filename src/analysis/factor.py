@@ -1,4 +1,3 @@
-from ast import iter_child_nodes
 from dataclasses import dataclass
 
 import numpy as np
@@ -7,8 +6,8 @@ import numpy as np
 @dataclass
 class IterationRecord:
     index: int
-    R_h: np.ndarray  # in
-    A_hat: np.ndarray  # out
+    R_h: np.ndarray
+    A_hat: np.ndarray
     f_prev: float
     f: float
     h2_new: np.ndarray
@@ -18,121 +17,108 @@ class IterationRecord:
     continue_: bool
 
 
-def evv(symmetrical_matrix: list[list[float]]):
-    vals, vecs = np.linalg.eigh(symmetrical_matrix)
-    vals = vals[::-1]
-    vecs = vecs[:, ::-1]
-    return vals.tolist(), vecs.tolist()
+def evv(symmetrical_matrix: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    vals, vecs = np.linalg.eigh(np.asarray(symmetrical_matrix, dtype=float))
+    return vals[::-1], vecs[:, ::-1]
 
 
-def build_reduced_matrix(R: list[list[float]], h2: list[float]) -> list[list[float]]:
-    n = len(R)
-    if len(h2) != n:
-        raise ValueError
+def build_reduced_matrix(R: np.ndarray, h2: np.ndarray) -> np.ndarray:
+    R = np.asarray(R, dtype=float)
+    h2 = np.asarray(h2, dtype=float)
+    if h2.shape[0] != R.shape[0]:
+        raise ValueError("h2 length must be equal to n")
 
-    Rh = [row[:] for row in R]
+    R_h = R.copy()
+    np.fill_diagonal(R_h, h2)
+    return R_h
+
+
+def factor_count_reduced(eigen_values: np.ndarray, w_low: int) -> int:
+    eigen_values = np.asarray(eigen_values, dtype=float)
+    w_high = int((eigen_values > eigen_values.mean()).sum())
+    return max(w_low, w_high)
+
+
+def aprox_factor_count(eigen_values: np.ndarray) -> int:
+    return int((np.asarray(eigen_values, dtype=float) > 1).sum())
+
+
+def max_corr_method(R: np.ndarray) -> np.ndarray:
+    off_diag = np.abs(np.asarray(R, dtype=float))
+    np.fill_diagonal(off_diag, 0.0)
+    return off_diag.max(axis=1)
+
+
+def triads_method(R: np.ndarray) -> np.ndarray:
+    R = np.asarray(R, dtype=float)
+    n = R.shape[0]
+    h2 = np.empty(n)
     for k in range(n):
-        Rh[k][k] = h2[k]
-    return Rh
-
-
-def aprox_factor_count(eigen_values: list[float], rh: bool = False) -> int:
-    low = 0
-    for v in eigen_values:
-        if v > 1:
-            low += 1
-
-    if rh:
-        high = 0
-        mean = np.mean(eigen_values)
-        for v in eigen_values:
-            if v > mean:
-                high += 1
-
-        return high if high > low else low
-
-    return low
-
-
-def max_corr_method(R: list[list[float]]) -> list[float]:
-    n = len(R)
-    h2 = []
-    for k in range(n):
-        h2.append(max(abs(R[k][v]) for v in range(n) if v != k))
+        row = np.abs(R[k]).copy()
+        row[k] = -1.0
+        i, j = np.argsort(row)[::-1][:2]
+        h2[k] = abs(R[k, i] * R[k, j] / R[i, j])
     return h2
 
 
-def triads_method(R: list[list[float]]) -> list[float]:
-    n = len(R)
-    h2 = []
-    for k in range(n):
-        others = sorted(
-            (v for v in range(n) if v != k),
-            key=lambda v: abs(R[k][v]),
-            reverse=True,
-        )
-        i, j = others[0], others[1]
-        h2.append(abs(R[k][i] * R[k][j] / R[i][j]))
-    return h2
+def mean_method(R: np.ndarray) -> np.ndarray:
+    R = np.asarray(R, dtype=float)
+    n = R.shape[0]
+    off_diag = np.abs(R)
+    np.fill_diagonal(off_diag, 0.0)
+    return off_diag.sum(axis=1) / (n - 1)
 
 
-def mean_method(R: list[list[float]]) -> list[float]:
-    n = len(R)
-    h2 = []
-    for k in range(n):
-        s = sum(abs(R[k][v]) for v in range(n) if v != k)
-        h2.append(s / (n - 1))
-    return h2
+def centroid_method(R: np.ndarray) -> np.ndarray:
+    R = np.asarray(R, dtype=float)
+    R_c = R.copy()
+    np.fill_diagonal(R_c, max_corr_method(R))
+
+    abs_c = np.abs(R_c)
+    return abs_c.sum(axis=1) ** 2 / abs_c.sum()
 
 
-def centroid_method(R: list[list[float]]) -> list[float]:
-    n = len(R)
-
-    Rc = [row[:] for row in R]
-    for k in range(n):
-        Rc[k][k] = max(abs(Rc[k][v]) for v in range(n) if v != k)
-
-    total = sum(abs(Rc[i][j]) for i in range(n) for j in range(n))
-
-    h2 = []
-    for k in range(n):
-        row_sum = sum(abs(Rc[k][v]) for v in range(n))
-        h2.append(row_sum**2 / total)
-    return h2
+def averoid_method(R: np.ndarray) -> np.ndarray:
+    R = np.asarray(R, dtype=float)
+    n = R.shape[0]
+    abs_r = np.abs(R)
+    return n / (n - 1) * abs_r.sum(axis=1) ** 2 / abs_r.sum()
 
 
-def averoid_method(R: list[list[float]]) -> list[float]:
-    n = len(R)
-    total = sum(abs(R[i][j]) for i in range(n) for j in range(n))
-
-    h2 = []
-    for k in range(n):
-        row_sum = sum(abs(R[k][v]) for v in range(n))
-        h2.append(n / (n - 1) * row_sum**2 / total)
-    return h2
-
-
-def component_method(R: list[list[float]], w: int | None = None) -> list[float]:
-    lam, e = np.linalg.eigh(np.array(R, dtype=float))
-
-    idx = np.argsort(lam)[::-1]
-    lam, e = lam[idx], e[:, idx]
+def component_method(R: np.ndarray, w: int | None = None) -> np.ndarray:
+    lam, vecs = evv(R)
 
     if w is None:
         w = int((lam > 1).sum())
 
-    a = e[:, :w] * np.sqrt(lam[:w])
+    a = vecs[:, :w] * np.sqrt(np.clip(lam[:w], 0, None))
+    return (a**2).sum(axis=1)
 
-    return (a**2).sum(axis=1).tolist()
+
+def _align_signs(A_new: np.ndarray, A_old: np.ndarray) -> np.ndarray:
+    k = min(A_new.shape[1], A_old.shape[1])
+    signs = np.ones(A_new.shape[1])
+    dots = (A_new[:, :k] * A_old[:, :k]).sum(axis=0)
+    signs[:k] = np.where(dots < 0, -1.0, 1.0)
+    return A_new * signs
 
 
-def compute_loadings_and_f(R_h, w: int):
+def _a_changed(A_new: np.ndarray, A_old: np.ndarray, eps: float) -> bool:
+    w = max(A_new.shape[1], A_old.shape[1])
+    n = A_new.shape[0]
+    new_p = np.zeros((n, w))
+    old_p = np.zeros((n, w))
+    new_p[:, : A_new.shape[1]] = A_new
+    old_p[:, : A_old.shape[1]] = A_old
+    return bool(((new_p - old_p) ** 2).sum() > eps)
+
+
+def compute_loadings_and_f(R_h: np.ndarray, w: int) -> tuple[np.ndarray, float]:
     R_h = np.asarray(R_h, dtype=float)
 
-    lam, E = np.linalg.eigh(R_h)
-    idx = np.argsort(lam)[::-1][:w]
-    lam_w = np.clip(lam[idx], 0, None)
-    A_hat = E[:, idx] * np.sqrt(lam_w)
+    lam, vecs = evv(R_h)
+    lam_w = np.clip(lam[:w], 0, None)
+    A_hat = vecs[:, :w] * np.sqrt(lam_w)
 
     R_res = R_h - A_hat @ A_hat.T
     mask = ~np.eye(R_h.shape[0], dtype=bool)
@@ -142,31 +128,30 @@ def compute_loadings_and_f(R_h, w: int):
 
 
 def run_iterations(
-    R: list[list[float]],
+    R: np.ndarray,
     A_prev: np.ndarray,
     f_prev: float,
-    w: int,
+    w_low: int,
     /,
-    eps=1e-6,
-    max_iter=100,
+    eps: float = 1e-6,
+    max_iter: int = 100,
 ) -> list[IterationRecord]:
-    records = []
-    R_arr = np.asarray(R, dtype=float)
+    records: list[IterationRecord] = []
+    R = np.asarray(R, dtype=float)
     h2 = (A_prev**2).sum(axis=1)
 
     for i in range(1, max_iter + 1):
-        R_h = np.array(build_reduced_matrix(R_arr.tolist(), h2.tolist()))
+        R_h = build_reduced_matrix(R, h2)
 
+        lam, _ = evv(R_h)
+        w = factor_count_reduced(lam, w_low)
         A_hat, f = compute_loadings_and_f(R_h, w)
-
-        signs = np.sign((A_hat * A_prev).sum(axis=0))
-        signs[signs == 0] = 1
-        A_hat = A_hat * signs
+        A_hat = _align_signs(A_hat, A_prev)
 
         h2_new = (A_hat**2).sum(axis=1)
 
-        c1 = f < f_prev
-        c2 = float(((A_hat - A_prev) ** 2).sum()) > eps
+        c1 = bool(f < f_prev)
+        c2 = _a_changed(A_hat, A_prev, eps)
         c3 = bool((h2_new <= 1).all())
         go = c1 and c2 and c3
 
