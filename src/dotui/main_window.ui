@@ -30,7 +30,7 @@
      <x>0</x>
      <y>0</y>
      <width>828</width>
-     <height>22</height>
+     <height>33</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -63,6 +63,7 @@
     <addaction name="actionCloseAll"/>
     <addaction name="separator"/>
     <addaction name="actionLogs"/>
+    <addaction name="actionInfer_Eqation"/>
    </widget>
    <widget class="QMenu" name="menuOptions">
     <property name="title">
@@ -87,6 +88,7 @@
     <addaction name="actionFactor"/>
     <addaction name="separator"/>
     <addaction name="menuFilter"/>
+    <addaction name="actionMutate"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuVisualization"/>
@@ -191,6 +193,16 @@
   <action name="actionFactor">
    <property name="text">
     <string>Factor</string>
+   </property>
+  </action>
+  <action name="actionMutate">
+   <property name="text">
+    <string>Mutate</string>
+   </property>
+  </action>
+  <action name="actionInfer_Eqation">
+   <property name="text">
+    <string>Infer Eqation</string>
    </property>
   </action>
  </widget>

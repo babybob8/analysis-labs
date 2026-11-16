@@ -1,5 +1,8 @@
+import logging
 from functools import cached_property
 from typing import Self
+
+from numpy import argmax, argmin
 
 from .analysis.corelation import (
     mult_correlation_significance_vector,
@@ -12,8 +15,11 @@ from .analysis.initial import (
     correlation_matrix,
     correlation_significance_matrix,
     covariance_matrix,
+    kurtosis_vector,
     mean_vector,
+    skew_vector,
     std_vector,
+    unbiased_stdev_vector,
 )
 from .analysis.regression import RegressionModel, regression
 from .parser import parse_vectors_file
@@ -68,7 +74,7 @@ class DataMatrix:
 class Data:
     def __init__(
         self,
-        src: str | DataMatrix | None,
+        src: str | DataMatrix | list[list[float]] | None,
         /,
         alpha: float = 0.05,
         dependent: int | None = None,
@@ -78,6 +84,25 @@ class Data:
 
         elif isinstance(src, DataMatrix):
             self._data_matrix = src
+
+        elif isinstance(src, list):
+            list_len = len(src)
+            item_len = len(src[0])
+
+            dimensions = min(list_len, item_len)
+            data_len = max(list_len, item_len)
+
+            logging.debug(
+                f"Inferred dimensions are: {dimensions}, data_len: {data_len}"
+            )
+            cols = list_len < item_len
+
+            _type = "columns" if cols else "rows"
+            logging.debug(f"Inferred data-type is: {_type}")
+            if cols:
+                self._data_matrix = DataMatrix(cols=src)
+            else:
+                self._data_matrix = DataMatrix(rows=src)
 
         else:
             raise ValueError(f"Weird src: {type(src)}\n {src}")
@@ -125,6 +150,18 @@ class Data:
     @cached_property
     def std_vector(self) -> list[float]:
         return std_vector(self._data_matrix.cols)
+
+    @cached_property
+    def unbiased_std_vector(self) -> list[float]:
+        return unbiased_stdev_vector(self._data_matrix.cols)
+
+    @cached_property
+    def skew_vector(self) -> list[float]:
+        return skew_vector(self._data_matrix.cols)
+
+    @cached_property
+    def kurtosis_vector(self) -> list[float]:
+        return kurtosis_vector(self._data_matrix.cols)
 
     @cached_property
     def covariance_matrix(self) -> list[list[float]]:

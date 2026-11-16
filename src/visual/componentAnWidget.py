@@ -41,7 +41,17 @@ class ComponentAnalysisWidget(QDialog):
 
         if eigenvalues is None or eigenvectors is None or ortogonal is None:
             self.eigenvalues, self.eigenvectors, self.ortogonal = forward(
-                self.data.cols, self.data.mean_vector, self.data.vector_length
+                self.data.cols,
+                self.data.mean_vector,
+                self.data.vector_length,
+                method="covariance",
+            )
+            print(self.eigenvalues, self.eigenvectors)
+            self.eigenvalues, self.eigenvectors, self.ortogonal = forward(
+                self.data.cols,
+                self.data.mean_vector,
+                self.data.vector_length,
+                method="correlation",
             )
         else:
             self.eigenvalues, self.eigenvectors, self.ortogonal = (

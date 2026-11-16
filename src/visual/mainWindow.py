@@ -1,10 +1,8 @@
 import datetime
 import logging
-import sys
 from pathlib import Path
 
-import pyqtgraph as pg
-from PyQt6.QtCore import pyqtSignal
+from numpy import asarray
 from PyQt6.QtWidgets import (
     QApplication,
     QDialog,
@@ -18,11 +16,14 @@ from ..analysis.component import _filter, _from_ortogonal, forward
 from ..compui.main_window import Ui_mainWindow
 from ..data import Data, DataMatrix
 from ..filter import filter_3sigma
+from ..mutations import apply_request
+from ..plane import plane_equation, point_plane_distances
 from .componentAnWidget import ComponentAnalysisWidget
 from .factorWidget import FactorWidget
 from .graphWidget import GraphType, GraphWidget
 from .loadDialog import LoadDialog
 from .logsWidget import LogsWidget
+from .mutationDialog import MutationDialog, MutationRequest
 from .settings_window import SettingsDialog
 from .statsWidget import StatsWidget
 
@@ -33,6 +34,7 @@ class MainWindow(QMainWindow):
         self.ui = Ui_mainWindow()
         self.ui.setupUi(self)
         self.data: Data | None = None
+        self.feature_names: list[str] | None = None
         self.eigenvalues, self.eigenvectors, self.ortogonal = None, None, None
         self.current_log: str | None = None
         self.subwindows = []
@@ -52,6 +54,8 @@ class MainWindow(QMainWindow):
         self.ui.actionStats.triggered.connect(self.open_stats)
         self.ui.action3_sigma.triggered.connect(self.on_action3sigma)
         self.ui.actionLogs.triggered.connect(self.on_actionLogs)
+        self.ui.actionMutate.triggered.connect(self.on_actionMutate)
+        self.ui.actionInfer_Eqation.triggered.connect(self.on_actionInfer_Eqation)
 
         self.ui.actionScatter_plot.triggered.connect(
             lambda: self.open_graph(GraphType.SCATTER)
@@ -89,6 +93,7 @@ class MainWindow(QMainWindow):
             return
 
         self.data = data
+        self.feature_names = [f"x{i}" for i in range(data.dimensions)]
 
     def set_settings(self, alpha: float, dependent: int):
         if self.data is None:
@@ -102,6 +107,9 @@ class MainWindow(QMainWindow):
         logging.debug(f"Set settings to: alpha({alpha}), dependent({dependent})")
 
     def filter_components(self, keep: int):
+        if self.data is None:
+            return
+
         filtered_components = _filter(self.data.rows, keep)
         self.eigenvectors = self.eigenvectors[:, :keep]  # filtered
         self.set_data(Data(DataMatrix(rows=filtered_components)))
@@ -213,7 +221,36 @@ class MainWindow(QMainWindow):
             ],
         )
 
+    def on_actionMutate(self):
+        if self.data is None:
+            return
+
+        dialog = MutationDialog(
+            features=self.feature_names, minimal=[min(col) for col in self.data.cols]
+        )
+        dialog.mutations_submitted.connect(self.apply_mutations)
+        dialog.exec()
+
+    def apply_mutations(self, request: MutationRequest):
+        if self.data is None:
+            return
+
+        try:
+            self.data = apply_request(asarray(self.data.cols), request)
+        except ValueError:
+            return
+
+    def on_actionInfer_Eqation(self):
+        if self.data is not None:
+            plane = plane_equation(self.data.rows)
+            a, b, c, d = plane
+            print(f"{a:.2f}x1 + {b:.2f}x2 + {c:.2f}x3 + {d:.2f}")
+            print(point_plane_distances(self.data.rows, plane).max())
+
     def open_stats(self):
+        if self.data is None:
+            return
+
         stats = StatsWidget(self.data)
         sub = QMdiSubWindow()
         sub.setWidget(stats)
@@ -223,6 +260,9 @@ class MainWindow(QMainWindow):
         logging.debug("Opened stats widget")
 
     def open_factor(self):
+        if self.data is None:
+            return
+
         factor = FactorWidget(self.data)
         sub = QMdiSubWindow()
         sub.setWidget(factor)
@@ -232,6 +272,9 @@ class MainWindow(QMainWindow):
         logging.debug("Opened factor widget")
 
     def open_graph(self, gtype: GraphType):
+        if self.data is None:
+            return
+
         graph = GraphWidget(gtype, self.data)
         sub = QMdiSubWindow()
         sub.setWidget(graph)

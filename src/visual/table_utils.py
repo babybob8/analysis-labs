@@ -104,7 +104,7 @@ def _fill_wsingle(table: QTableWidget, item: str) -> None:
 
 def fill_table(
     table: QTableWidget,
-    filler: matrix_t | vector_t | float | int | bool | str,
+    filler: matrix_t | vector_t | float | bool | str,
     header: list[str] | None = None,
     lefter: list[str] | None = None,
 ) -> None:

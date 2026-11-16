@@ -23,6 +23,9 @@ class StatsWidget(QWidget):
         fill_table(self.ui.dimValue, self.data.dimensions)
         fill_table(self.ui.meansVector, self.data.mean_vector)
         fill_table(self.ui.rootSquareMeansVector, self.data.std_vector)
+        fill_table(self.ui.unbiasedVarianceVector, self.data.unbiased_std_vector)
+        fill_table(self.ui.kurtosisVector, self.data.kurtosis_vector)
+        fill_table(self.ui.skewnessVector, self.data.skew_vector)
         fill_table(self.ui.corrMatrix, self.data.correlation_matrix)
         fill_table(self.ui.corrSignifMatrix, self.data.correlation_significance_matrix)
 
