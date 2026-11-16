@@ -1,7 +1,7 @@
 from math import sqrt
 from statistics import mean, stdev
 
-from scipy.stats import t
+from scipy.stats import kurtosis, skew, t, tstd
 
 
 def mean_vector(columns: list[list[float]]) -> list[float]:
@@ -18,6 +18,30 @@ def std_vector(columns: list[list[float]]) -> list[float]:
         std_vector.append(stdev(vector))
 
     return std_vector
+
+
+def unbiased_stdev_vector(columns: list[list[float]]) -> list[float]:
+    unbiased_stdev_vector = []
+    for vector in columns:
+        unbiased_stdev_vector.append(tstd(vector))
+
+    return unbiased_stdev_vector
+
+
+def skew_vector(columns: list[list[float]]) -> list[float]:
+    skew_vector = []
+    for vector in columns:
+        skew_vector.append(skew(vector))
+
+    return skew_vector
+
+
+def kurtosis_vector(columns: list[list[float]]) -> list[float]:
+    kurtosis_vector = []
+    for vector in columns:
+        kurtosis_vector.append(kurtosis(vector))
+
+    return kurtosis_vector
 
 
 def covariance_matrix(
